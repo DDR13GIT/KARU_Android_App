@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Karu_Android_app</string>
+    <string name="google">google</string>
+    <string name="or_register_with_email">Or, register with email</string>
+    <string name="facebook">facebook</string>
+    <string name="apple">apple</string>
+    <string name="password">Password</string>
+    <string name="email_id">Email ID</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
