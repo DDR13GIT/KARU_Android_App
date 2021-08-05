@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Karu_Android_app">
         <activity
+            android:name=".signIN"
+            android:exported="true" />
+        <activity
             android:name=".signup"
             android:exported="true" />
         <activity
