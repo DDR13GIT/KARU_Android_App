@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Karu_Android_app">
         <activity
+            android:name=".dashboard"
+            android:exported="true" />
+        <activity
             android:name=".signIN"
             android:exported="true" />
         <activity
