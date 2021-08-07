@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class signup extends AppCompatActivity implements View.OnClickListener {
@@ -28,7 +29,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
     private TextView signInTextView;
     private Button signUpBtn;
 
-  //  private FirebaseAuth mAuth;
+   private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +37,9 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_signup);
         this.setTitle("Sign Up Activity");
         //FirebaseApp.initializeApp(this);
-     /*   mAuth = FirebaseAuth.getInstance();
-        if(mAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),signIN.class));
+        mAuth = FirebaseAuth.getInstance();
+      /* if(mAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
             finish();
         }*/
         signUpEmail=findViewById(R.id.signUpEmailText);
@@ -51,7 +52,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         signUpBtn.setOnClickListener(this);
     }
 
-   /* @Override
+  /* @Override
     protected void onStart() {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -106,21 +107,30 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
             return;
         }
 
-       /* mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Register is successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(),signIN.class));
+                   /* startActivity(new Intent(getApplicationContext(),signIN.class));
+                    */
 
+                    finish();
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Register is not successful", Toast.LENGTH_SHORT).show();
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        Toast.makeText(getApplicationContext(), "User already registered", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Error :"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
 
-             });*/
+             });
 
     }
 
