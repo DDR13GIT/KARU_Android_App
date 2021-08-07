@@ -2,16 +2,19 @@
     <string name="app_name">Karu_Android_app</string>
     <string name="google">Button</string>
     <string name="fb">Button</string>
+    <string name="apple">apple</string>
 
     <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
     <string name="loginview">Login</string>
-    <string name="anotherloginview">Or, login with....</string>
+    <string name="or_login_with_email">Or, login with</string>
+    <string name="or_register_with_email">Or, register with email</string>
+    <string name="already_account">Already have an account? Login</string>
+    <string name="new_here">New Here? Create Account</string>
     <string name="emailhint">Email ID</string>
     <string name="passhint">Password</string>
 
-    <string name="or_register_with_email">Or, register with email</string>
-    <string name="facebook">facebook</string>
-    <string name="apple">apple</string>
+
     <string name="password">Password</string>
     <string name="email_id">Email ID</string>
     <string name="sign_up">Sign Up</string>
