@@ -9,8 +9,10 @@
     <string name="loginview">Login</string>
     <string name="or_login_with_email">Or, login with</string>
     <string name="or_register_with_email">Or, register with email</string>
-    <string name="already_account">Already have an account? Login</string>
-    <string name="new_here">New Here? Create Account</string>
+    <string name="loginBtnText">Login</string>
+    <string name="already_account">Already have an account?</string>
+    <string name="createAccount">Create Account</string>
+    <string name="newHere">New in Karu?</string>
     <string name="emailhint">Email ID</string>
     <string name="passhint">Password</string>
 
