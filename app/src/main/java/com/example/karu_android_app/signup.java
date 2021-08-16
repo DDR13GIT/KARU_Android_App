@@ -117,7 +117,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
                     */
 
                     finish();
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),dashboard.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 } else {
