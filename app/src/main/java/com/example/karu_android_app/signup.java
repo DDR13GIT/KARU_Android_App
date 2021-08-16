@@ -36,12 +36,12 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         this.setTitle("Sign Up Activity");
-        //FirebaseApp.initializeApp(this);
+
         mAuth = FirebaseAuth.getInstance();
-      /* if(mAuth.getCurrentUser() != null){
+       if(mAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(),MainActivity.class));
             finish();
-        }*/
+        }
         signUpEmail=findViewById(R.id.signUpEmailText);
         signUpPass=findViewById(R.id.signUpPasswordText);
 
@@ -52,15 +52,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         signUpBtn.setOnClickListener(this);
     }
 
-  /* @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser user = mAuth.getCurrentUser();
-        if(user ==null){
-             startActivity(new Intent(   ));
-        }
-
-    }*/
 
 
    @Override
