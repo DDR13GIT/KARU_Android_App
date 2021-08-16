@@ -14,17 +14,16 @@
             android:name=".dashboard"
             android:exported="true" />
         <activity
-            android:name=".signIN"
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".signup"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".signIN"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
