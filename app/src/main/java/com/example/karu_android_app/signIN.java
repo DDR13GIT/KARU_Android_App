@@ -50,13 +50,7 @@ public class signIN extends AppCompatActivity implements OnClickListener{
         signUpTextView.setOnClickListener(this);
         signInBtn.setOnClickListener(this);
 
-        TextView forget= findViewById(R.id.forgetPassBtn);
-        forget.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick (View v){
-                forgetBtn();
-            }
-        });
+
     }
 
     @Override
@@ -123,8 +117,4 @@ public class signIN extends AppCompatActivity implements OnClickListener{
 
     }
 
-    public void forgetBtn (){
-        startActivity(new Intent(getApplicationContext(), forget.class));
-
-    }
 }

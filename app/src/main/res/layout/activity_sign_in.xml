@@ -227,7 +227,6 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="169dp"
-        android:onClick="forgetBtn"
         android:text="Forgotten your password?"
         android:textSize="18sp"
         android:textStyle="bold"
