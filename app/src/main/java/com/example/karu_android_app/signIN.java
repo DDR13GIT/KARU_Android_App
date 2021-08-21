@@ -49,8 +49,6 @@ public class signIN extends AppCompatActivity implements OnClickListener{
 
         signUpTextView.setOnClickListener(this);
         signInBtn.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -116,5 +114,4 @@ public class signIN extends AppCompatActivity implements OnClickListener{
 
 
     }
-
 }

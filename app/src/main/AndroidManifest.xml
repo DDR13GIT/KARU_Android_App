@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.karu_android_app">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -12,10 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Karu_Android_app">
         <activity
-            android:name=".forget"
+            android:name=".faq"
+            android:exported="true" />
+        <activity
+            android:name=".help"
+            android:exported="true" />
+        <activity
+            android:name=".editProfile"
+            android:exported="true" />
+        <activity
+            android:name=".userProfile"
             android:exported="true" />
         <activity
             android:name=".dashboard"
+            android:exported="true" />
+        <activity
+            android:name=".signIN"
             android:exported="true" />
         <activity
             android:name=".signup"
@@ -28,9 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".signIN"
-            android:exported="true" />
     </application>
 
 </manifest>
