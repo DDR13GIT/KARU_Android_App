@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".faq">
+
+    <TextView
+        android:id="@+id/helpCenter"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+
+        android:layout_marginBottom="252dp"
+        android:background="@color/black"
+        android:text="Help Center"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/faqDetails"
+        app:layout_constraintVertical_bias="0.138" />
+
+    <TextView
+        android:id="@+id/faqDetails"
+        android:layout_width="127dp"
+        android:layout_height="44dp"
+        android:text="FAQ Details"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.048" />
+
+    <ImageButton
+        android:id="@+id/backBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_backbtn"
+
+        app:layout_constraintBottom_toTopOf="@+id/helpCenter"
+        app:layout_constraintEnd_toStartOf="@+id/faqDetails"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/faqDetails"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/divider10"
+        android:layout_width="390dp"
+        android:layout_height="12dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/faqDetails"
+        app:layout_constraintVertical_bias="0.021" />
+
+    <TextView
+        android:id="@+id/q1Ans"
+        android:layout_width="364dp"
+        android:layout_height="421dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/q1Ans"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/q1BTN" />
+
+    <TextView
+        android:id="@+id/q1BTN"
+        android:layout_width="400dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/q1"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpCenter" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

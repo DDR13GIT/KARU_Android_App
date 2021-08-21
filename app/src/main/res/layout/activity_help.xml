@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userProfile">
+
+
+    <Button
+        android:id="@+id/q2BTN4"
+        android:layout_width="390dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        android:text="@string/q5"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/q2BTN3" />
+
+    <Button
+        android:id="@+id/q2BTN3"
+        android:layout_width="390dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        android:text="@string/q4"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/q2BTN2" />
+
+    <Button
+        android:id="@+id/q2BTN2"
+        android:layout_width="390dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        android:text="@string/q3"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/q2BTN" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="409dp"
+        android:layout_height="10dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104" />
+
+
+    <Button
+        android:id="@+id/q1BTN"
+        android:layout_width="390dp"
+        android:layout_height="80dp"
+
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        android:text="@string/q1"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/faqTextView" />
+
+    <Button
+        android:id="@+id/q2BTN"
+        android:layout_width="390dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        android:text="@string/q2"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/q1BTN" />
+
+    <TextView
+        android:id="@+id/profileTextView"
+        android:layout_width="127dp"
+        android:layout_height="44dp"
+        android:text="Help"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/divider4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/backBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_backbtn"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/profileTextView"
+        app:layout_constraintEnd_toStartOf="@+id/profileTextView"
+        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        />
+
+    <TextView
+        android:id="@+id/faqTextView"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="36dp"
+        android:text="FAQ"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileTextView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,13 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 
 public class settingFragment extends Fragment{
 
-    private Button logout;
+    private Button logout,profile,help;
+
     FirebaseAuth mAuth;
 
 
@@ -29,6 +31,8 @@ public class settingFragment extends Fragment{
 
         mAuth = FirebaseAuth.getInstance();
         logout=v.findViewById(R.id.logoutBtn);
+        profile=v.findViewById(R.id.profileBtn);
+        help=v.findViewById(R.id.helpBtn);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,6 +40,27 @@ public class settingFragment extends Fragment{
                 logOutUser();
             }
         });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),userProfile.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),help.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
+
+
 
         return v;
 
