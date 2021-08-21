@@ -6,43 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".signup">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="147dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/showSignupText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/applogo" />
+
     <TextView
         android:id="@+id/showSignupText"
         android:layout_width="131dp"
         android:layout_height="47dp"
         android:layout_marginStart="32dp"
-        android:text="Sign Up"
 
+        android:layout_marginBottom="8dp"
+        android:text="Sign Up"
         android:textColor="@color/black"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293" />
-
-    <EditText
-        android:id="@+id/signUpEmailText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:drawableLeft="@drawable/email"
-        android:drawablePadding="5dp"
-        android:drawableTint="@color/ash"
-        android:ems="10"
-        android:hint="@string/emailhint"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.412" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:passwordToggleTint="@color/ash">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUpEmailText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/email"
+            android:drawablePadding="5dp"
+
+            android:drawableTint="@color/dark_ash"
+            android:hint="@string/emailhint"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="32dp"
@@ -53,7 +77,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.485"
-        app:passwordToggleDrawable="@drawable/show"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/ash">
 
@@ -64,7 +87,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/password"
             android:drawablePadding="5dp"
-            android:drawableTint="@color/ash"
+            android:drawableTint="@color/dark_ash"
             android:hint="@string/password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -73,7 +96,7 @@
         android:id="@+id/signupBTN"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
-        android:layout_height="57dp"
+        android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/button_design"
@@ -86,7 +109,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.624" />
+        app:layout_constraintVertical_bias="0.602" />
 
     <TextView
         android:id="@+id/anotherText"
@@ -94,19 +117,19 @@
         android:layout_height="wrap_content"
         android:text="@string/or_register_with_email"
         android:textColor="@color/dark_ash"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742" />
+        app:layout_constraintVertical_bias="0.767" />
 
     <ImageButton
         android:id="@+id/googleBTN"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="88dp"
         android:layout_height="74dp"
-        android:background="@color/white"
+        android:background="@drawable/signin_button_design"
         android:src="@drawable/ic_google"
         android:text="@string/google"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -122,7 +145,7 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:background="@color/white"
+        android:background="@drawable/signin_button_design"
         android:src="@drawable/ic_fb"
         android:text="@string/fb"
         app:layout_constraintBottom_toBottomOf="@+id/googleBTN"
@@ -139,7 +162,7 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:background="@color/white"
+        android:background="@drawable/signin_button_design"
         android:src="@drawable/ic_apple"
         android:text="@string/apple"
         app:layout_constraintBottom_toBottomOf="@+id/fbBTN"
@@ -170,7 +193,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="@string/loginBtnText"
-        android:textColor="@color/blue_karu"
+        android:textColor="@color/scarlet_Red"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -191,5 +214,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="alreadyAccount,textView" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:text="By continuing, you agree to Karu's Terms of Service, Privacy Policy and Cookie use."
+        android:textAlignment="center"
+        android:textColor="@color/dark_ash"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupBTN" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="12dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/googleBTN" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

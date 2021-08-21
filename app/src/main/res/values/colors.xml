@@ -10,4 +10,7 @@
     <color name="dark_ash">#6D7A90</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue_karu">#0065FF</color>
+    <color name="scarlet_Red">#FF2400</color>
+    <color name="scarlet_Red_dark">#CA2005</color>
+
 </resources>

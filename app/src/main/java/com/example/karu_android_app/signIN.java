@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 
 public class signIN extends AppCompatActivity implements OnClickListener{
     private EditText signInEmail,signInPass;
@@ -34,6 +35,11 @@ public class signIN extends AppCompatActivity implements OnClickListener{
         this.setTitle("Sign In Activity");
 
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseuser = mAuth.getCurrentUser();
+        if(firebaseuser!= null){
+            startActivity(new Intent(getApplicationContext(), dashboard.class));
+        }
+
 
         signInEmail=findViewById(R.id.emailText);
         signInPass=findViewById(R.id.passwordText);
@@ -43,6 +49,14 @@ public class signIN extends AppCompatActivity implements OnClickListener{
 
         signUpTextView.setOnClickListener(this);
         signInBtn.setOnClickListener(this);
+
+        TextView forget= findViewById(R.id.forgetPassBtn);
+        forget.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                forgetBtn();
+            }
+        });
     }
 
     @Override
@@ -106,6 +120,11 @@ public class signIN extends AppCompatActivity implements OnClickListener{
 
         });
 
+
+    }
+
+    public void forgetBtn (){
+        startActivity(new Intent(getApplicationContext(), forget.class));
 
     }
 }
