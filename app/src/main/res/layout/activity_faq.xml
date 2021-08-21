@@ -9,10 +9,11 @@
     <TextView
         android:id="@+id/helpCenter"
         android:layout_width="0dp"
-        android:layout_height="80dp"
-
+        android:layout_height="wrap_content"
         android:layout_marginBottom="252dp"
         android:background="@color/black"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:text="User Help Center"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -23,16 +24,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/faqDetails"
-        app:layout_constraintVertical_bias="0.060000002" />
+        app:layout_constraintVertical_bias="0.068" />
 
     <TextView
         android:id="@+id/faqDetails"
-        android:layout_width="127dp"
-        android:layout_height="44dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="FAQ Details"
-        android:textSize="30sp"
-        android:textColor="@color/black"
+        android:textStyle="bold"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

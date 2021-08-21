@@ -13,10 +13,12 @@
         android:theme="@style/Theme.Karu_Android_app">
         <activity
             android:name=".faq"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".help"/>
         <activity
             android:name=".help"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".settingFragment"/>
         <activity
             android:name=".editProfile"
             android:exported="true" />
