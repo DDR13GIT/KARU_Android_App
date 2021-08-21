@@ -18,6 +18,7 @@ private ImageButton back;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),settingFragment.class);
+                finish();
             }
         });
     }
