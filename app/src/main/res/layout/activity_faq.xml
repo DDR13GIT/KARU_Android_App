@@ -13,7 +13,7 @@
 
         android:layout_marginBottom="252dp"
         android:background="@color/black"
-        android:text="Help Center"
+        android:text="User Help Center"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30dp"
@@ -23,7 +23,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/faqDetails"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.060000002" />
 
     <TextView
         android:id="@+id/faqDetails"
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:src="@drawable/ic_backbtn"
+        android:src="@drawable/leftarrow"
 
         app:layout_constraintBottom_toTopOf="@+id/helpCenter"
         app:layout_constraintEnd_toStartOf="@+id/faqDetails"
@@ -68,15 +68,15 @@
 
     <TextView
         android:id="@+id/q1Ans"
-        android:layout_width="364dp"
+        android:layout_width="match_parent"
         android:layout_height="421dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
         android:layout_marginBottom="50dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:text="@string/q1Ans"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -85,9 +85,10 @@
 
     <TextView
         android:id="@+id/q1BTN"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
         android:layout_height="81dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="16dp"
         android:text="@string/q1"
         android:textColor="@color/black"

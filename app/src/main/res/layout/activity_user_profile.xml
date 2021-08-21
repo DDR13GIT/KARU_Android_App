@@ -7,28 +7,28 @@
     tools:context=".userProfile">
 
 
-
     <View
         android:id="@+id/divider4"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="5dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.104" />
-
+        app:layout_constraintVertical_bias="0.102" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="69dp"
         android:layout_height="69dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="100dp"
         android:src="@drawable/google"
         app:civ_border_color="#FFFFFF"
         app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,23 +36,24 @@
         android:id="@+id/fullName_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="329dp"
         android:text="Full legal name"
         app:layout_constraintBottom_toTopOf="@+id/divider5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider4"
-        app:layout_constraintVertical_bias="0.62" />
+        app:layout_constraintVertical_bias="0.625" />
 
     <View
         android:id="@+id/divider5"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider4"
         app:layout_constraintVertical_bias="0.271" />
 
@@ -60,47 +61,49 @@
         android:id="@+id/email_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="329dp"
         android:text="Email address"
         app:layout_constraintBottom_toTopOf="@+id/divider6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divider5"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.284" />
 
     <View
         android:id="@+id/divider6"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider5"
-        app:layout_constraintVertical_bias="0.212" />
+        app:layout_constraintVertical_bias="0.23000002" />
 
     <TextView
         android:id="@+id/phnNum_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="329dp"
         android:text="Phone Number"
         app:layout_constraintBottom_toBottomOf="@+id/divider7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divider6"
-        app:layout_constraintVertical_bias="0.341" />
+        app:layout_constraintVertical_bias="0.34" />
 
     <View
         android:id="@+id/divider7"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider6"
         app:layout_constraintVertical_bias="0.26" />
 
@@ -108,28 +111,28 @@
         android:id="@+id/dob_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="329dp"
-        android:text="Date of Birth"
 
+        android:text="Date of Birth"
         app:layout_constraintBottom_toTopOf="@+id/divider8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divider7"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintVertical_bias="0.337" />
 
     <View
         android:id="@+id/divider8"
-        android:layout_width="416dp"
+        android:layout_width="match_parent"
         android:layout_height="124dp"
         android:background="#EAEDED "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider7"
-        app:layout_constraintVertical_bias="0.569" />
+        app:layout_constraintVertical_bias="0.497" />
 
     <Button
         android:id="@+id/editProfileBTN"
@@ -163,15 +166,15 @@
         android:id="@+id/backBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_backbtn"
+        android:layout_marginStart="16dp"
         android:backgroundTint="@color/white"
+        android:src="@drawable/leftarrow"
         app:layout_constraintBottom_toBottomOf="@+id/profileTextView"
         app:layout_constraintEnd_toStartOf="@+id/profileTextView"
-        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        />
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
