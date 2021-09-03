@@ -15,6 +15,9 @@
             android:name=".sellArt"
             android:exported="true" />
         <activity
+            android:name=".permission_page"
+            android:exported="true" />
+        <activity
             android:name=".faq"
             android:exported="true" />
         <activity
