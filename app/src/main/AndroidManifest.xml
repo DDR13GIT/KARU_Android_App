@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Karu_Android_app">
         <activity
+            android:name=".permission_page"
+            android:exported="true" />
+        <activity
             android:name=".faq"
             android:exported="true" />
         <activity
