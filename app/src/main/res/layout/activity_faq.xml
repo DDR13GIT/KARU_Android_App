@@ -21,26 +21,26 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/faqDetails"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintTop_toBottomOf="@+id/divider10"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/faqDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="FAQ Details"
-        android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/backBTN"
@@ -58,21 +58,21 @@
 
     <View
         android:id="@+id/divider10"
-        android:layout_width="390dp"
-        android:layout_height="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="8dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/faqDetails"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/q1Ans"
         android:layout_width="match_parent"
         android:layout_height="421dp"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
@@ -81,17 +81,19 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/q1BTN" />
+        app:layout_constraintTop_toBottomOf="@+id/q1BTN"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/q1BTN"
         android:layout_width="match_parent"
-        android:paddingRight="16dp"
+        android:layout_height="wrap_content"
         android:paddingLeft="16dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:text="@string/q1"
         android:textColor="@color/black"
         android:textSize="20dp"
