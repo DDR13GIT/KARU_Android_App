@@ -104,7 +104,7 @@
         android:layout_height="315dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="56dp"
-        android:backgroundTint="#c52d68"
+        android:backgroundTint="#fc5c65"
         app:cardCornerRadius="10dp"
         app:cardElevation="50dp"
         app:layout_constraintEnd_toStartOf="@+id/cardView2"
