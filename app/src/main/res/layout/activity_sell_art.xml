@@ -114,7 +114,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView18"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -219,7 +219,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
-    <TextView
+    <EditText
         android:id="@+id/priceField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
