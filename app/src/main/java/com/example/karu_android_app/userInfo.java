@@ -10,7 +10,13 @@ public class userInfo {
         this.fullName = fullName;
         Email = email;
         this.phnNum = phnNum;
-        Dob = dob;
+        this.Dob = dob;
+    }
+
+    public userInfo(String fullName, String phnNum, String dob) {
+        this.fullName = fullName;
+        this.phnNum = phnNum;
+        this.Dob = dob;
     }
 
     public String getFullName() {
