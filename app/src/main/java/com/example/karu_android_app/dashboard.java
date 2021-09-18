@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.bluetooth.le.ScanRecord;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -32,8 +31,8 @@ public class dashboard extends AppCompatActivity {
                 case R.id.home:
                     selectedFragment = new homeFragment();
                     break;
-                case R.id.search:
-                    selectedFragment = new searchFragment();
+                case R.id.notification:
+                    selectedFragment = new notificationFragment();
                     break;
                 case R.id.setting:
                     selectedFragment = new settingFragment();

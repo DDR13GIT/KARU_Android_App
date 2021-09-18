@@ -5,9 +5,9 @@
     <item android:title="Home"
         android:id="@+id/home"
         android:icon="@drawable/home" />
-    <item android:title="Search"
+    <item android:title="Notification"
         android:icon="@drawable/search"
-        android:id="@+id/search"/>
+        android:id="@+id/notification"/>
     <item android:title="Setting"
         android:icon="@drawable/setting"
         android:id="@+id/setting"/>
