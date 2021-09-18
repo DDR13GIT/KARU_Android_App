@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +23,10 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class signup extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,12 +37,23 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
     private EditText Dob;
     private EditText phnNum;
     private FirebaseAuth mAuth;
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
+
+//    FirebaseDatabase rootNode;
+//    DatabaseReference reference;
     private FirebaseUser user;
+
+    public static final String Key_name = "name";
+    public static final String Key_dob = "dob";
+    public static final String Key_phn = "phone";
+    public static final String Key_email = "email";
+    public static final String Key_pass = "password";
+
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         this.setTitle("Sign Up Activity");
@@ -59,22 +76,19 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         phnNum = (EditText) findViewById(R.id.phoneNumberInput);
         Dob = (EditText) findViewById(R.id.dobInput);
     }
-
+    //public static String GlobalName = fullName.getText().toString();
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
 
             case R.id.signupBTN:
-
                 userRegister();
-
                 break;
 
             case R.id.alreadyAccount:
                 Intent intent = new Intent(getApplicationContext(), signIN.class);
                 startActivity(intent);
-
                 break;
         }
 
@@ -82,19 +96,13 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
 
     private void userRegister() {
 
-
-        String name = fullName.getText().toString();
+         String name = fullName.getText().toString();
         String phn = phnNum.getText().toString();
         String dob = Dob.getText().toString();
         String email = signUpEmail.getText().toString().trim();
         String pass = signUpPass.getText().toString().trim();
 
-        userInfo userInfo = new userInfo(name, email, phn, dob);
-
-
-
-
-
+        //userInfo userInfo = new userInfo(name, email, phn, dob);
 
 
         if (TextUtils.isEmpty(email)) {
@@ -112,8 +120,8 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
             signUpEmail.requestFocus();
             return;
         }
-        if (pass.length() < 8) {
-            signUpPass.setError("Password must be at least eight digit");
+        if (pass.length() < 6) {
+            signUpPass.setError("Password must be at least six digit");
             signUpEmail.requestFocus();
             return;
         }
@@ -125,12 +133,23 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Register is successful", Toast.LENGTH_SHORT).show();
 
+
                     //wer are passing info to realtime database here.
-                    user = FirebaseAuth.getInstance().getCurrentUser();
-                    rootNode = FirebaseDatabase.getInstance();
-                    reference = rootNode.getReference().child(user.getUid());
-                    reference.child(phn).setValue(userInfo);
+//                    user = FirebaseAuth.getInstance().getCurrentUser();
+//                    rootNode = FirebaseDatabase.getInstance();
+//                    reference = rootNode.getReference().child(user.getUid());
+//                    reference.child(phn).setValue(userInfo);
                     //Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+
+
+
+                    Map<String,Object> userInfo = new HashMap<>();
+                    userInfo.put(Key_name,name);
+                    userInfo.put(Key_phn,phn);
+                    userInfo.put(Key_dob,dob);
+                    userInfo.put(Key_email,email);
+                    userInfo.put(Key_pass,pass);
+                    db.collection("Users").document(name).set(userInfo);
 
                     finish();
                     Intent intent = new Intent(getApplicationContext(), dashboard.class);

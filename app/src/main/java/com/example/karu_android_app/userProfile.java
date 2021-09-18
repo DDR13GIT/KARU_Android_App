@@ -18,7 +18,7 @@ public class userProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         back = (ImageButton) findViewById(R.id.backBTN);
-        editProfile=findViewById(R.id.editProfileBTN);
+        editProfile=findViewById(R.id.publish_btn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
