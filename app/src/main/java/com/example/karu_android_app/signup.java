@@ -37,9 +37,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
     private EditText Dob;
     private EditText phnNum;
     private FirebaseAuth mAuth;
-
-//    FirebaseDatabase rootNode;
-//    DatabaseReference reference;
     private FirebaseUser user;
 
     public static final String Key_name = "name";
