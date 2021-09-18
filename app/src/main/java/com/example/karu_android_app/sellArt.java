@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,6 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class sellArt extends AppCompatActivity {
+
+    private ImageButton back;
     private EditText title, size, category, description, price;
 
 
@@ -37,6 +41,16 @@ public class sellArt extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell_art);
+
+        back = findViewById(R.id.backBTN);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+
 
         Intent intent = getIntent();
         name = intent.getStringExtra("Name");
