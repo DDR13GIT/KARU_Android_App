@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Karu_Android_app">
         <activity
+            android:name=".manage_payment"
+            android:exported="true" />
+        <activity
+            android:name=".transaction_history"
+            android:exported="true" />
+        <activity
+            android:name=".digital_payment"
+            android:exported="true" />
+        <activity
             android:name=".postDetails"
             android:exported="true" />
         <activity
