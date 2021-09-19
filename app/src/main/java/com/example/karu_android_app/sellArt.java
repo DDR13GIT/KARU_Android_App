@@ -54,7 +54,6 @@ public class sellArt extends AppCompatActivity {
 
         Intent intent = getIntent();
         name = intent.getStringExtra("Name");
-        Toast.makeText(getApplicationContext(),name+ " HEda",Toast.LENGTH_SHORT).show();
         title = findViewById(R.id.post_title);
         size = findViewById(R.id.post_size);
         category = findViewById(R.id.post_category);
@@ -65,10 +64,10 @@ public class sellArt extends AppCompatActivity {
 
     public void publish (View view){
         String post_title = title.getText().toString();
-        String post_size = size.getText().toString();
+        int post_size = Integer.parseInt(size.getText().toString());
         String post_category = category.getText().toString();
         String post_description = description.getText().toString();
-        String post_price = price.getText().toString();
+        int post_price = Integer.parseInt(price.getText().toString());
 
         Map<String,Object> postInfo = new HashMap<>();
         postInfo.put(Key_title,post_title);
@@ -76,7 +75,7 @@ public class sellArt extends AppCompatActivity {
         postInfo.put(Key_category,post_category);
         postInfo.put(Key_description,post_description);
         postInfo.put(Key_price,post_price);
-        DocumentReference documentReference = root.collection("Posts").document(user.getUid());
+        DocumentReference documentReference = root.collection("Posts").document();
         // db.collection("Users").document(signup.GlobalName).collection("UserPosts").set(postInfo);
 //        documentReference.collection("Posts").document().set(postInfo);
         documentReference.set(postInfo).addOnSuccessListener(new OnSuccessListener<Void>()
