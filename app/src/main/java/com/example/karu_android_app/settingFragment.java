@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class settingFragment extends Fragment {
 
-    private Button logout, profile, help, permission;
+    private Button logout, profile, help, permission,digitalPayment;
 
     FirebaseAuth mAuth;
 
@@ -34,6 +34,7 @@ public class settingFragment extends Fragment {
         profile = v.findViewById(R.id.profileBtn);
         help = v.findViewById(R.id.helpBtn);
         permission = v.findViewById(R.id.permissionBtn);
+        digitalPayment = v.findViewById(R.id.digitalPaymentBtn);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +47,14 @@ public class settingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), userProfile.class);
+                startActivity(intent);
+
+            }
+        });
+        digitalPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), digital_payment.class);
                 startActivity(intent);
 
             }
