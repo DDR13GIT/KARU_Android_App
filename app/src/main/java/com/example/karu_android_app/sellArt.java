@@ -2,21 +2,17 @@ package com.example.karu_android_app;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +27,7 @@ public class sellArt extends AppCompatActivity {
     public static final String Key_category = "category";
     public static final String Key_description = "description";
     public static final String Key_price = "price";
-      String name;
+
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private FirebaseFirestore root = FirebaseFirestore.getInstance();
     @Override
@@ -47,14 +43,10 @@ public class sellArt extends AppCompatActivity {
             }
         });
 
-
-
-        Intent intent = getIntent();
-        name = intent.getStringExtra("Name");
-        title = findViewById(R.id.userName);
-        size = findViewById(R.id.uEmail);
-        category = findViewById(R.id.uPhone);
-        description = findViewById(R.id.uDob);
+        title = findViewById(R.id.post_title);
+        size = findViewById(R.id.post_size);
+        category = findViewById(R.id.post_category);
+        description = findViewById(R.id.post_description);
         price = findViewById(R.id.post_price);
 
     }
