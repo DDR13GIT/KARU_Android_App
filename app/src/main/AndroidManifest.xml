@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Karu_Android_app">
         <activity
+            android:name=".showExhibition"
+            android:exported="true" />
+        <activity
+            android:name=".sampleExhibition"
+            android:exported="true" />
+        <activity
+            android:name=".post_exhibition"
+            android:exported="true" />
+        <activity
             android:name=".manage_payment"
             android:exported="true" />
         <activity

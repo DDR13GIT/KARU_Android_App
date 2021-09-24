@@ -1,45 +1,28 @@
 package com.example.karu_android_app;
 
-import static android.service.controls.ControlsProviderService.TAG;
+
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class homeFragment extends Fragment {
-    private CardView sellArtFunction, buyArtFunction;
-    private TextView uname;
-    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    private FirebaseFirestore root = FirebaseFirestore.getInstance();
-    public static final String Key_name = "name";
+ private CardView sellArtFunction, buyArtFunction, exhibitionFunction;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         sellArtFunction = v.findViewById(R.id.cardView2);
         buyArtFunction = v.findViewById(R.id.cardView1);
-        uname = v.findViewById(R.id.user_name_display);
-
-
+        exhibitionFunction = v.findViewById(R.id.cardView3);
 
         sellArtFunction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,25 +41,15 @@ public class homeFragment extends Fragment {
 
             }
         });
-
-        DocumentReference docRef = root.collection("Users").document(user.getUid()).collection("basic_info").document("name");
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        exhibitionFunction.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        String name = document.getString(Key_name);
-                        uname.setText(name);
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                    } else {
-                        Log.d(TAG, "No such document");
-                    }
-                } else {
-                    Log.d(TAG, "get failed with ", task.getException());
-                }
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), showExhibition.class);
+                startActivity(intent);
+
             }
         });
+
         return v;
     }
 }
