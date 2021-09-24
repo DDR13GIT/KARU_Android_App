@@ -50,10 +50,6 @@ public class sellArt extends AppCompatActivity {
             }
         });
 
-
-
-        Intent intent = getIntent();
-        name = intent.getStringExtra("Name");
         title = findViewById(R.id.post_title);
         size = findViewById(R.id.post_size);
         category = findViewById(R.id.post_category);
