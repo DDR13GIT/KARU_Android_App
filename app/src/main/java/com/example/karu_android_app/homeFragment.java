@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 
 public class homeFragment extends Fragment {
- private CardView sellArtFunction, buyArtFunction;
+ private CardView sellArtFunction, buyArtFunction, exhibitionFunction;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -21,8 +21,7 @@ public class homeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         sellArtFunction = v.findViewById(R.id.cardView2);
         buyArtFunction = v.findViewById(R.id.cardView1);
-
-
+        exhibitionFunction = v.findViewById(R.id.cardView3);
 
         sellArtFunction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +40,15 @@ public class homeFragment extends Fragment {
 
             }
         });
+        exhibitionFunction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), showExhibition.class);
+                startActivity(intent);
+
+            }
+        });
+
 
 
         return v;
