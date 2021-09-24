@@ -76,6 +76,8 @@ public class sellArt extends AppCompatActivity {
         postInfo.put(Key_description,post_description);
         postInfo.put(Key_price,post_price);
         DocumentReference documentReference = root.collection("Posts").document();
+
+
         // db.collection("Users").document(signup.GlobalName).collection("UserPosts").set(postInfo);
 //        documentReference.collection("Posts").document().set(postInfo);
         documentReference.set(postInfo).addOnSuccessListener(new OnSuccessListener<Void>()

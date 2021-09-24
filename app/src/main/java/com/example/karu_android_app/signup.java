@@ -92,8 +92,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void userRegister() {
-
-         String name = fullName.getText().toString();
+        String name = fullName.getText().toString();
         String phn = phnNum.getText().toString();
         String dob = Dob.getText().toString();
         String email = signUpEmail.getText().toString().trim();
