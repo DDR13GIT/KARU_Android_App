@@ -20,7 +20,7 @@ public class PostAdapter extends FirestoreRecyclerAdapter<postDataModel, PostAda
     @Override
     protected void onBindViewHolder(@NonNull PostHolder holder, int position, @NonNull postDataModel model) {
     holder.title.setText(model.getTitle());
-    holder.price.setText(String.valueOf(model.getPrice()));
+    holder.price.setText("BDT " +String.valueOf(model.getPrice())+ " ৳");
     holder.category.setText(model.getCategory());
     }
 

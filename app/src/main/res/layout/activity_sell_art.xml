@@ -117,7 +117,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
     <EditText
-        android:id="@+id/post_title"
+        android:id="@+id/userName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -141,10 +141,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_title" />
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
 
     <EditText
-        android:id="@+id/post_size"
+        android:id="@+id/uEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -167,10 +167,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_size" />
+        app:layout_constraintTop_toBottomOf="@+id/uEmail" />
 
     <EditText
-        android:id="@+id/post_category"
+        android:id="@+id/uPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -193,10 +193,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_category" />
+        app:layout_constraintTop_toBottomOf="@+id/uPhone" />
 
     <EditText
-        android:id="@+id/post_description"
+        android:id="@+id/uDob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -219,7 +219,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_description" />
+        app:layout_constraintTop_toBottomOf="@+id/uDob" />
 
     <EditText
         android:id="@+id/post_price"

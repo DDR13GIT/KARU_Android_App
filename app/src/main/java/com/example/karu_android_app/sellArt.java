@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,8 +14,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -54,10 +51,10 @@ public class sellArt extends AppCompatActivity {
 
         Intent intent = getIntent();
         name = intent.getStringExtra("Name");
-        title = findViewById(R.id.post_title);
-        size = findViewById(R.id.post_size);
-        category = findViewById(R.id.post_category);
-        description = findViewById(R.id.post_description);
+        title = findViewById(R.id.userName);
+        size = findViewById(R.id.uEmail);
+        category = findViewById(R.id.uPhone);
+        description = findViewById(R.id.uDob);
         price = findViewById(R.id.post_price);
 
     }
@@ -67,7 +64,7 @@ public class sellArt extends AppCompatActivity {
         int post_size = Integer.parseInt(size.getText().toString());
         String post_category = category.getText().toString();
         String post_description = description.getText().toString();
-        int post_price = Integer.parseInt(price.getText().toString());
+        double post_price = Double.parseDouble(price.getText().toString());
 
         Map<String,Object> postInfo = new HashMap<>();
         postInfo.put(Key_title,post_title);
@@ -75,6 +72,8 @@ public class sellArt extends AppCompatActivity {
         postInfo.put(Key_category,post_category);
         postInfo.put(Key_description,post_description);
         postInfo.put(Key_price,post_price);
+        postInfo.put("postAuthor", user.getUid());
+
         DocumentReference documentReference = root.collection("Posts").document();
 
 
@@ -93,6 +92,7 @@ public class sellArt extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_SHORT).show();
             }
         });
+        root.collection("Users").document(user.getUid()).collection("posts").document(post_title).set(postInfo);
 
     }
 

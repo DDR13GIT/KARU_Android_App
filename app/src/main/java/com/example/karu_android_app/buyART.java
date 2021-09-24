@@ -24,17 +24,18 @@ public class buyART extends AppCompatActivity {
 
         setUpRecyclerView();
     }
-     private void setUpRecyclerView(){
-         Query query = postReference.orderBy("price", Query.Direction.ASCENDING);
-         FirestoreRecyclerOptions<postDataModel> options = new FirestoreRecyclerOptions.Builder<postDataModel>()
-            .setQuery(query, postDataModel.class)
-                 .build();
-    adapter = new PostAdapter(options);
-         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-         recyclerView.setHasFixedSize(true);
-         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-         recyclerView.setAdapter(adapter);
-     }
+
+    private void setUpRecyclerView() {
+        Query query = postReference.orderBy("price", Query.Direction.ASCENDING);
+        FirestoreRecyclerOptions<postDataModel> options = new FirestoreRecyclerOptions.Builder<postDataModel>()
+                .setQuery(query, postDataModel.class)
+                .build();
+        adapter = new PostAdapter(options);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+    }
 
     @Override
     protected void onStart() {

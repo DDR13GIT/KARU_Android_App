@@ -5,12 +5,11 @@ public class postDataModel {
     private int size;
     private String description;
     private String category;
-    private int price;
+    private double price;
 
     public postDataModel() {
     }
-
-    public postDataModel(String title, int size, String description, String category, int price) {
+    public postDataModel(String title, int size, String description, String category, double price) {
         this.title = title;
         this.size = size;
         this.description = description;
@@ -34,7 +33,7 @@ public class postDataModel {
         return category;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 }

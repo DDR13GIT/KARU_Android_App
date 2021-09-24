@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -98,9 +99,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         String email = signUpEmail.getText().toString().trim();
         String pass = signUpPass.getText().toString().trim();
 
-        //userInfo userInfo = new userInfo(name, email, phn, dob);
-
-
         if (TextUtils.isEmpty(email)) {
             signUpEmail.setError("Email Required");
             signUpEmail.requestFocus();
@@ -130,24 +128,20 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
                     Toast.makeText(getApplicationContext(), "Register is successful", Toast.LENGTH_SHORT).show();
 
 
-                    //wer are passing info to realtime database here.
-//                    user = FirebaseAuth.getInstance().getCurrentUser();
-//                    rootNode = FirebaseDatabase.getInstance();
-//                    reference = rootNode.getReference().child(user.getUid());
-//                    reference.child(phn).setValue(userInfo);
-                    //Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
-
-
-
                     Map<String,Object> userInfo = new HashMap<>();
                     userInfo.put(Key_name,name);
                     userInfo.put(Key_phn,phn);
                     userInfo.put(Key_dob,dob);
                     userInfo.put(Key_email,email);
                     userInfo.put(Key_pass,pass);
-                    db.collection("Users").document(name).set(userInfo);
+
+                    //DocumentReference documentReference = db.collection("users").document(user.getUid()).collection("basic_info").document();
+                    //documentReference.set(userInfo);
 
                     finish();
+
+
+
                     Intent intent = new Intent(getApplicationContext(), dashboard.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
