@@ -78,13 +78,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Full Name"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_holder_cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageEditBtn" />
 
     <EditText
         android:id="@+id/editFullName"
@@ -181,4 +181,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dob" />
+
+    <ImageButton
+        android:id="@+id/imageEditBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/post_item_btn"
+        app:layout_constraintEnd_toStartOf="@+id/imageDeleteBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_holder_cardView"
+        app:srcCompat="@drawable/changeimage" />
+
+    <ImageButton
+        android:id="@+id/imageDeleteBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/post_item_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageEditBtn"
+        app:layout_constraintTop_toBottomOf="@+id/image_holder_cardView"
+        app:srcCompat="@drawable/delete" />
 </androidx.constraintlayout.widget.ConstraintLayout>

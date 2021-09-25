@@ -9,15 +9,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <EditText
         android:id="@+id/textView21"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/text_custom_background"
+        android:background="@drawable/ash_background"
         android:drawableLeft="@drawable/search"
+        android:drawableTint="@color/ash"
+        android:paddingLeft="10dp"
         android:drawablePadding="16dp"
         android:hint="search"
         app:layout_constraintBottom_toTopOf="@+id/divider7"
@@ -31,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/text_custom_background"
+        android:background="@drawable/ash_background"
         android:src="@drawable/filter"
         app:layout_constraintBottom_toBottomOf="@+id/textView21"
         app:layout_constraintEnd_toEndOf="parent"

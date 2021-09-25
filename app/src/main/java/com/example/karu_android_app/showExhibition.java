@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -19,7 +20,7 @@ public class showExhibition extends AppCompatActivity {
     private CollectionReference postReference = db.collection("Exhibition");
 
     private exhibitionPostAdapter adapter;
-    private Button floatingBTN;
+    private FloatingActionButton floatingBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

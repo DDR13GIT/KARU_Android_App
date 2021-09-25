@@ -8,72 +8,76 @@
 
     <EditText
         android:id="@+id/textView21"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/signin_button_design"
+        android:background="@drawable/ash_background"
         android:drawableLeft="@drawable/search"
         android:drawablePadding="16dp"
-        android:drawableTint="@color/scarlet_Red_dark"
+        android:drawableTint="@color/ash"
         android:hint="search"
-        app:layout_constraintBottom_toTopOf="@+id/divider7"
+        android:paddingLeft="10dp"
         app:layout_constraintEnd_toStartOf="@+id/backBTN"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageButton
         android:id="@+id/backBTN"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="#79D1D0D0"
         android:src="@drawable/filter"
         app:layout_constraintBottom_toBottomOf="@+id/textView21"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView21"
-        app:layout_constraintTop_toTopOf="@+id/textView21" />
-
-    <View
-        android:id="@+id/divider7"
-        android:layout_width="391dp"
-        android:layout_height="5dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#fafafa"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backBTN" />
-
+        app:layout_constraintTop_toTopOf="@+id/textView21"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Exhibition_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider7"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/backBTN">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/plusBTN"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:drawableLeft="@drawable/plus"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.734"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/Exhibition_recycler_view"-->
+<!--        app:layout_constraintVertical_bias="0.826" />-->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/plusBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:drawableLeft="@drawable/plus"
+        android:clickable="true"
+        android:elevation="10dp"
+        app:backgroundTint="#fc5c65"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.734"
+        app:layout_constraintHorizontal_bias="0.893"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Exhibition_recycler_view"
-        app:layout_constraintVertical_bias="0.826" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.954"
+        app:srcCompat="@drawable/plus" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
