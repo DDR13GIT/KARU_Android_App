@@ -28,17 +28,16 @@ import java.util.Map;
 
 public class post_exhibition extends AppCompatActivity {
     private ImageButton back;
-    private EditText event_name,event_place,event_date,event_price,event_host,host_nid,payment_num;
+    private EditText Event_name,Event_place,Event_date,Event_price,Event_host,Host_nid,Payment_num;
 
 
-    public static final String Key_event_name = "Event Name";
-    public static final String Key_event_place = "Event Place";
-    public static final String Key_event_date = "Event Date";
-    public static final String Key_event_price= "Ticket Price";
-    public static final String Key_event_host = "Event Host";
-    public static final String Key_host_nid = "Host NID";
-    public static final String Key_payment_num = "Payment No";
-    String name;
+    public static final String Key_event_name = "eventName";
+    public static final String Key_event_place = "eventPlace";
+    public static final String Key_event_date = "eventDate";
+    public static final String Key_event_price= "ticketPrice";
+    public static final String Key_event_host = "eventHost";
+    public static final String Key_host_nid = "hostNID";
+    public static final String Key_payment_num = "paymentNumber";
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private FirebaseFirestore root = FirebaseFirestore.getInstance();
 
@@ -55,43 +54,43 @@ public class post_exhibition extends AppCompatActivity {
             }
         });
 
-        event_name = findViewById(R.id.event_name);
-        event_place = findViewById(R.id.event_place);
-        event_date= findViewById(R.id.event_date);
-        event_host = findViewById(R.id.event_host);
-        host_nid= findViewById(R.id.host_nid);
-        event_price = findViewById(R.id.event_price);
-        payment_num = findViewById(R.id.payment_num);
+        Event_name = findViewById(R.id.event_name);
+        Event_place = findViewById(R.id.event_place);
+        Event_date= findViewById(R.id.event_date);
+        Event_host = findViewById(R.id.event_host);
+        Host_nid= findViewById(R.id.host_nid);
+        Event_price = findViewById(R.id.event_price);
+        Payment_num = findViewById(R.id.payment_num);
 
     }
 
 
     public void publishExhibition (View view){
-        String eventName = event_name.getText().toString();
-        String eventPlace= event_place.getText().toString();
-        String eventDate = event_date.getText().toString();
-        String eventHost = event_host.getText().toString();
-        double price = Integer.parseInt(event_price.getText().toString());
-        double nid = Integer.parseInt(host_nid.getText().toString());
-        double payment = Integer.parseInt(payment_num.getText().toString());
+        String eventName = Event_name.getText().toString();
+        String eventPlace= Event_place.getText().toString();
+        String eventDate = Event_date.getText().toString();
+        String eventHost = Event_host.getText().toString();
+        double price = Double.parseDouble(Event_price.getText().toString());
+        double nid = Double.parseDouble(Host_nid.getText().toString());
+        double payment = Double.parseDouble(Payment_num.getText().toString());
+
 
         Map<String,Object> postInfo = new HashMap<>();
-        postInfo.put(Key_event_name,event_name);
-        postInfo.put(Key_event_place,event_place);
-        postInfo.put(Key_event_date,event_date);
-        postInfo.put(Key_event_host,event_host);
-        postInfo.put(Key_host_nid,host_nid);
-        postInfo.put(Key_event_price,event_price);
-        postInfo.put(Key_payment_num,payment_num);
+        postInfo.put(Key_event_name,eventName);
+        postInfo.put(Key_event_place,eventPlace);
+        postInfo.put(Key_event_date,eventDate);
+        postInfo.put(Key_event_host,eventHost);
+        postInfo.put(Key_host_nid,price);
+        postInfo.put(Key_event_price,nid);
+        postInfo.put(Key_payment_num,payment);
+        postInfo.put("userUid", user.getUid());
         DocumentReference documentReference = root.collection("Exhibition").document();
-        // db.collection("Users").document(signup.GlobalName).collection("UserPosts").set(postInfo);
-//        documentReference.collection("Posts").document().set(postInfo);
+
         documentReference.set(postInfo).addOnSuccessListener(new OnSuccessListener<Void>()
         {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(getApplicationContext(),"Done",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(),"Exhibition hosted successfully",Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

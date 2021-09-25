@@ -26,11 +26,11 @@ public class showExhibition extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_exhibition);
 
-        floatingBTN=findViewById(R.id.plusBTN);
+        floatingBTN = findViewById(R.id.plusBTN);
         floatingBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),post_exhibition.class);
+                Intent intent = new Intent(getApplicationContext(), post_exhibition.class);
                 startActivity(intent);
             }
         });
@@ -39,14 +39,26 @@ public class showExhibition extends AppCompatActivity {
     }
 
     private void setUpRecyclerView() {
-        Query query = postReference.orderBy("price", Query.Direction.ASCENDING);
+        Query query = postReference.orderBy("eventDate", Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<exhibitionPostInfo> options = new FirestoreRecyclerOptions.Builder<exhibitionPostInfo>()
                 .setQuery(query, exhibitionPostInfo.class)
                 .build();
         adapter = new exhibitionPostAdapter(options);
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.Exhibition_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }
