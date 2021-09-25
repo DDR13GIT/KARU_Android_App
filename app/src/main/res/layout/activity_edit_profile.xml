@@ -19,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/backBTN" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/image_holder_cardView"
         android:layout_width="69dp"
         android:layout_height="69dp"
         android:layout_marginTop="16dp"
@@ -96,7 +96,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+        app:layout_constraintTop_toBottomOf="@+id/image_holder_cardView" />
 
     <EditText
         android:id="@+id/editFullName"

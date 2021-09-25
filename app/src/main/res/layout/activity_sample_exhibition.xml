@@ -19,7 +19,7 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
+            android:id="@+id/image_holder_cardView"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginStart="16dp"
@@ -38,7 +38,7 @@
             android:text="Event Name"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/profile_image"
+            app:layout_constraintStart_toEndOf="@+id/image_holder_cardView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -50,7 +50,7 @@
             android:text="Event Place"
             android:textColor="@color/teal_700"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/profile_image"
+            app:layout_constraintStart_toEndOf="@+id/image_holder_cardView"
             app:layout_constraintTop_toBottomOf="@+id/eventNameText" />
 
         <TextView
@@ -63,7 +63,7 @@
             android:textSize="16sp"
 
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/profile_image"
+            app:layout_constraintStart_toEndOf="@+id/image_holder_cardView"
             app:layout_constraintTop_toBottomOf="@+id/eventPlaceText" />
 
 
