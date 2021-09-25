@@ -20,8 +20,8 @@ public class exhibitionPostAdapter extends FirestoreRecyclerAdapter<exhibitionPo
     @Override
     protected void onBindViewHolder(@NonNull exhibitionHolder holder, int position, @NonNull exhibitionPostInfo model) {
         holder.event_name.setText(model.getEventName());
-         holder.event_date_place.setText(model.getEventDate());
-         holder.event_price.setText(String.valueOf("BDT " +model.getTicketPrice()+ " "));
+         holder.event_date_place.setText(model.getEventPlace()+", "+ model.getEventDate());
+         holder.event_price.setText(String.valueOf("BDT " +model.getTicketPrice()+ " ৳"));
     }
 
     @NonNull
