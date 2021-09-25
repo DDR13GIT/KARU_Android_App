@@ -29,7 +29,7 @@ public class buyART extends AppCompatActivity {
          FirestoreRecyclerOptions<postDataModel> options = new FirestoreRecyclerOptions.Builder<postDataModel>()
             .setQuery(query, postDataModel.class)
                  .build();
-    adapter = new PostAdapter(options);
+         adapter = new PostAdapter(options);
          RecyclerView recyclerView = findViewById(R.id.recycler_view);
          recyclerView.setHasFixedSize(true);
          recyclerView.setLayoutManager(new LinearLayoutManager(this));

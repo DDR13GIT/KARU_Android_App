@@ -19,19 +19,19 @@ public class PostAdapter extends FirestoreRecyclerAdapter<postDataModel, PostAda
 
     @Override
     protected void onBindViewHolder(@NonNull PostHolder holder, int position, @NonNull postDataModel model) {
-    holder.title.setText(model.getTitle());
-    holder.price.setText(String.valueOf(model.getPrice()));
-    holder.category.setText(model.getCategory());
+        holder.title.setText(model.getTitle());
+        holder.price.setText(String.valueOf(model.getPrice()));
+        holder.category.setText(model.getCategory());
     }
 
     @NonNull
     @Override
     public PostHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.postitem,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.postitem, parent, false);
         return new PostHolder(v);
     }
 
-    class PostHolder extends RecyclerView.ViewHolder{
+    class PostHolder extends RecyclerView.ViewHolder {
         TextView title;
         TextView price;
         TextView category;
