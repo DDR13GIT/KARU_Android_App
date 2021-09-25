@@ -22,6 +22,7 @@ public class exhibitionPostAdapter extends FirestoreRecyclerAdapter<exhibitionPo
         holder.event_name.setText(model.getEventName());
          holder.event_date_place.setText(model.getEventPlace()+", "+ model.getEventDate());
          holder.event_price.setText(String.valueOf("BDT " +model.getTicketPrice()+ " ৳"));
+         holder.event_hostName.setText("Hosted by "+ model.getEventHost());
     }
 
     @NonNull
@@ -35,12 +36,14 @@ public class exhibitionPostAdapter extends FirestoreRecyclerAdapter<exhibitionPo
         TextView event_name;
         TextView event_date_place;
         TextView event_price;
+        TextView event_hostName;
 
         public exhibitionHolder(@NonNull View itemView) {
             super(itemView);
             event_name = itemView.findViewById(R.id.eventNameText);
             event_date_place = itemView.findViewById(R.id.eventPlaceText);
             event_price = itemView.findViewById(R.id.ticketPrice);
+            event_hostName = itemView.findViewById(R.id.hostName);
         }
     }
 }

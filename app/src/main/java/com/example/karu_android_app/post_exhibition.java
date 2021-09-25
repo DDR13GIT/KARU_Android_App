@@ -80,8 +80,8 @@ public class post_exhibition extends AppCompatActivity {
         postInfo.put(Key_event_place,eventPlace);
         postInfo.put(Key_event_date,eventDate);
         postInfo.put(Key_event_host,eventHost);
-        postInfo.put(Key_host_nid,price);
-        postInfo.put(Key_event_price,nid);
+        postInfo.put(Key_host_nid,nid);
+        postInfo.put(Key_event_price,price);
         postInfo.put(Key_payment_num,payment);
         postInfo.put("userUid", user.getUid());
         DocumentReference documentReference = root.collection("Exhibition").document();
