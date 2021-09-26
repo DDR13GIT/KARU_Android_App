@@ -6,15 +6,22 @@ public class postDataModel {
     private String description;
     private String category;
     private double price;
+    private String imageUrl;
 
     public postDataModel() {
     }
-    public postDataModel(String title, int size, String description, String category, double price) {
+
+    public postDataModel(String title, int size, String description, String category, double price, String imageUrl) {
         this.title = title;
         this.size = size;
         this.description = description;
         this.category = category;
         this.price = price;
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public String getTitle() {
