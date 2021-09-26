@@ -75,6 +75,7 @@ public class sellArt extends AppCompatActivity {
         price = findViewById(R.id.post_price);
         addPhoto = findViewById(R.id.addPhotoBTN);
         view_uploadedImage = findViewById((R.id.showImage));
+
         addPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,6 +109,8 @@ public class sellArt extends AppCompatActivity {
     }
 
     String downloadUrl;
+
+
     public void publish(View view) {
         String post_title = title.getText().toString();
         int post_size = Integer.parseInt(size.getText().toString());
@@ -115,7 +118,8 @@ public class sellArt extends AppCompatActivity {
         String post_description = description.getText().toString();
         double post_price = Double.parseDouble(price.getText().toString());
 
-//uploading image to fireStorage
+        //uploading image to fireStorage
+
         if (imageUri != null) {
             StorageReference fileReference = storageReference.child(System.currentTimeMillis()
                     + "." + getFileExtension(imageUri));
@@ -170,55 +174,6 @@ public class sellArt extends AppCompatActivity {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
 
         }
-
-
-
-
-
-//            Task<Uri> urlTask = mUploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-//                @Override
-//                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-//                    if (!task.isSuccessful()) {
-//                        throw task.getException();
-//                    }
-//
-//                    // Continue with the task to get the download URL
-//                    return fileReference.getDownloadUrl();
-//                }
-//            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-//                @Override
-//                public void onComplete(@NonNull Task<Uri> task) {
-//                    if (task.isSuccessful()) {
-//                        Uri downloadUri = task.getResult();
-//                        downloadUrl = downloadUri.toString();
-//                    }
-//                }
-//            });
-//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//
-//                            Toast.makeText(getApplicationContext(), "Upload successful", Toast.LENGTH_LONG).show();
-//
-//                            Uri downloadUri = taskSnapshot.getDownloadUrl();
-//                            downloadUrl = downloadUri.toString();
-//                        }
-//                    })
-//                    .addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
-//        } else {
-//            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
-
-
-
-
-
-
-
 
 
     }

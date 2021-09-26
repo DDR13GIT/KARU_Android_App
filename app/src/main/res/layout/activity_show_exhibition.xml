@@ -51,19 +51,6 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-<!--    <Button-->
-<!--        android:id="@+id/plusBTN"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-
-<!--        android:drawableLeft="@drawable/plus"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.734"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/Exhibition_recycler_view"-->
-<!--        app:layout_constraintVertical_bias="0.826" />-->
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/plusBTN"
         android:layout_width="wrap_content"

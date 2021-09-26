@@ -9,11 +9,12 @@ public class exhibitionPostInfo {
     double hostNID;
     double ticketPrice;
     double paymentNum;
+    String eventLogo;
 
     public exhibitionPostInfo() {
     }
 
-    public exhibitionPostInfo(String eventName, String eventPlace, String eventHost, String eventDate, double hostNID, double ticketPrice, double paymentNum) {
+    public exhibitionPostInfo(String eventName, String eventPlace, String eventHost, String eventDate, double hostNID, double ticketPrice, double paymentNum, String eventLogo) {
         this.eventName = eventName;
         this.eventPlace = eventPlace;
         this.eventHost = eventHost;
@@ -21,6 +22,7 @@ public class exhibitionPostInfo {
         this.hostNID = hostNID;
         this.ticketPrice = ticketPrice;
         this.paymentNum = paymentNum;
+        this.eventLogo = eventLogo;
     }
 
     public String getEventName() {
@@ -49,5 +51,9 @@ public class exhibitionPostInfo {
 
     public double getPaymentNum() {
         return paymentNum;
+    }
+
+    public String getEventLogo() {
+        return eventLogo;
     }
 }
