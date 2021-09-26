@@ -50,7 +50,8 @@ public class post_exhibition extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent intent = new Intent(getApplicationContext(),showExhibition.class);
+                startActivity(intent);
             }
         });
 
