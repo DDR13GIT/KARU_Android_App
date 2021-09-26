@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,9 +21,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
 
 public class userProfile extends AppCompatActivity {
     private ImageButton back;
+    private ImageView profilepic;
     private Button editProfile;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private FirebaseFirestore root = FirebaseFirestore.getInstance();
@@ -51,19 +54,20 @@ public class userProfile extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), editProfile.class);
 
 
-
                 String name = uname.getText().toString();
                 String phn = uphn.getText().toString();
                 String email = uemail.getText().toString();
                 String dob = udob.getText().toString();
-//////////intent pass data
+
+
+                //intent pass data
                 Bundle bundle = new Bundle();
 
-                bundle.putString("name_PreIntent",name);
-                bundle.putString("phn_PreIntent",phn);
-                bundle.putString("email_PreIntent",email);
-                bundle.putString("dob_PreIntent",dob);
-
+                bundle.putString("name_PreIntent", name);
+                bundle.putString("phn_PreIntent", phn);
+                bundle.putString("email_PreIntent", email);
+                bundle.putString("dob_PreIntent", dob);
+//                bundle.putString("propic_PreIntert", profilepic);
 
                 intent.putExtras(bundle);
 
@@ -76,6 +80,7 @@ public class userProfile extends AppCompatActivity {
         uemail = findViewById(R.id.uEmail);
         uphn = findViewById(R.id.uPhone);
         udob = findViewById(R.id.uDob);
+        profilepic = findViewById(R.id.image_holder_cardView);
 
         DocumentReference docRef = root.collection("Users").document(user.getUid()).collection("basic_info").document("name");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -88,11 +93,13 @@ public class userProfile extends AppCompatActivity {
                         String dob = document.getString(Key_dob);
                         String phn = document.getString(Key_phn);
                         String email = document.getString(Key_email);
-
+                        String imageUrl = document.getString("userImage");
                         uname.setText(name);
                         uemail.setText(email);
                         udob.setText(dob);
                         uphn.setText(phn);
+                        Picasso.get().load(imageUrl).into(profilepic);
+
 
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                     } else {
