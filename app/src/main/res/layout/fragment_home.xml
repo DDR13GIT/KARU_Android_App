@@ -306,25 +306,27 @@
 
         </androidx.cardview.widget.CardView>
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageView5"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="236dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
+            android:background="@drawable/post_item_btn"
             android:padding="3dp"
             android:src="@drawable/favourite"
-            app:layout_constraintEnd_toStartOf="@+id/imageView6"
+            app:layout_constraintEnd_toStartOf="@+id/cartBTN"
             app:layout_constraintStart_toEndOf="@+id/logoView"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView6"
+        <ImageButton
+            android:id="@+id/cartBTN"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/post_item_btn"
             android:padding="3dp"
             android:src="@drawable/cart_red"
             app:layout_constraintEnd_toEndOf="parent"

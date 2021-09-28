@@ -31,4 +31,10 @@
 
     <string name="noti1">Notification will appear here</string>
     <string name="noti2">We will notify yoy when something new and interesting is happening</string>
+
+
+    <string-array name="names">
+        <item>+</item>
+        <item>-</item>
+    </string-array>
 </resources>
