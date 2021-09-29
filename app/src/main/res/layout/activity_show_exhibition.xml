@@ -7,7 +7,7 @@
     tools:context=".showExhibition">
 
     <EditText
-        android:id="@+id/textView21"
+        android:id="@+id/searchBTN"
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
@@ -31,9 +31,9 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="#79D1D0D0"
         android:src="@drawable/filter"
-        app:layout_constraintBottom_toBottomOf="@+id/textView21"
+        app:layout_constraintBottom_toBottomOf="@+id/searchBTN"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView21"
+        app:layout_constraintTop_toTopOf="@+id/searchBTN"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView

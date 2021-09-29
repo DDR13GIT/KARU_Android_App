@@ -10,8 +10,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/textView21"
+    <Button
+        android:id="@+id/searchBTN"
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
@@ -36,9 +36,9 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/ash_background"
         android:src="@drawable/filter"
-        app:layout_constraintBottom_toBottomOf="@+id/textView21"
+        app:layout_constraintBottom_toBottomOf="@+id/searchBTN"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView21"
+        app:layout_constraintTop_toTopOf="@+id/searchBTN"
         app:layout_constraintVertical_bias="0.0" />
 
     <View
