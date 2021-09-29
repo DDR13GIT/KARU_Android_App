@@ -1,24 +1,21 @@
 package com.example.karu_android_app;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -138,6 +135,7 @@ public class sellArt extends AppCompatActivity {
 
                             Map<String, Object> postInfo = new HashMap<>();
                             postInfo.put(Key_title, post_title);
+                            postInfo.put("search", post_title.toLowerCase());
                             postInfo.put(Key_size, post_size);
                             postInfo.put(Key_category, post_category);
                             postInfo.put(Key_description, post_description);
