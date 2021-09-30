@@ -1,32 +1,46 @@
 package com.example.karu_android_app;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-//import com.travijuu.numberpicker.library.NumberPicker;
+import com.travijuu.numberpicker.library.NumberPicker;
 
 public class postDetails extends AppCompatActivity {
-    private TextView title,price;
-    private ImageView image;
+
+    TextView title_view, price_view, description_view;
+    ImageView image_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_details);
 
-     /*   NumberPicker numberPicker = (NumberPicker) findViewById(R.id.number_picker);
+        NumberPicker numberPicker = (NumberPicker) findViewById(R.id.number_picker);
         numberPicker.setMax(15);
         numberPicker.setMin(5);
         numberPicker.setUnit(2);
-        numberPicker.setValue(10);
-        int count = numberPicker.getValue();*/
+        numberPicker.setValue(1);
 
-        title= findViewById(R.id.postTitle);
-        price= findViewById(R.id.postPrice);
-        image= findViewById(R.id.postImage);
+        int count = numberPicker.getValue();
+
+
+        Intent data = getIntent();
+        String title = data.getStringExtra("title");
+        String price = data.getStringExtra("price");
+        String description = data.getStringExtra("description");
+
+        String image_uri = data.getStringExtra("image_uri");
+
+        title_view = findViewById(R.id.title_details);
+        price_view = findViewById(R.id.details_price);
+        description_view = findViewById(R.id.description_details);
+        image_view = findViewById(R.id.imageViewDetails);
+
+        title_view.setText(title);
+        price_view.setText("BDT " + price + " ৳");
+        description_view.setText(description);
+        Picasso.get().load(image_uri).into(image_view);
 
     }
 }
