@@ -66,7 +66,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/t1"
+            android:id="@+id/title_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -90,7 +90,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/i1"
-            app:layout_constraintTop_toBottomOf="@id/t1" />
+            app:layout_constraintTop_toBottomOf="@id/title_details" />
 
         <Switch
             android:id="@+id/switch1"
@@ -124,7 +124,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/t3"
+            android:id="@+id/description_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -138,7 +138,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/t4"
+            android:id="@+id/details_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -148,7 +148,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/i2"
-            app:layout_constraintTop_toBottomOf="@id/t3" />
+            app:layout_constraintTop_toBottomOf="@id/description_details" />
 
         <Switch
             android:id="@+id/switch2"
