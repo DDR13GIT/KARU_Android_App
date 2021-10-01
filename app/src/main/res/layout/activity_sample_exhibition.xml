@@ -88,7 +88,7 @@
             app:layout_constraintTop_toBottomOf="@+id/divider8" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/buy_ticket"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="134dp"

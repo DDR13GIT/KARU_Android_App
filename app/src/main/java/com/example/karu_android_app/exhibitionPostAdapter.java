@@ -36,6 +36,7 @@ public class exhibitionPostAdapter extends FirestoreRecyclerAdapter<exhibitionPo
         return new exhibitionHolder(v);
     }
 
+
     class exhibitionHolder extends RecyclerView.ViewHolder {
         TextView event_name;
         TextView event_date_place;
