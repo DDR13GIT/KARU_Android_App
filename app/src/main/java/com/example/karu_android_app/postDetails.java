@@ -22,8 +22,8 @@ public class postDetails extends AppCompatActivity {
 
         NumberPicker numberPicker = (NumberPicker) findViewById(R.id.number_picker);
         numberPicker.setMax(15);
-        numberPicker.setMin(5);
-        numberPicker.setUnit(2);
+        numberPicker.setMin(0);
+        numberPicker.setUnit(1);
         numberPicker.setValue(1);
 
         int count = numberPicker.getValue();
