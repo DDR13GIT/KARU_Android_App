@@ -51,6 +51,7 @@ public class editProfile extends AppCompatActivity {
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference("User_Images");
 
 Uri imageUri;
+//dtabase a save hobe ai nam a
     public static final String Key_name = "name";
     public static final String Key_dob = "dob";
     public static final String Key_phn = "phone";
@@ -97,13 +98,15 @@ String downloadUrl;
         view_uploadedImage= findViewById(R.id.image_holder_cardView);
         addProfilePic= findViewById(R.id.addPhoto);
         Bundle bundle = getIntent().getExtras();
+
+
         addProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openFileChooser();
             }
         });
-
+//ak class theke arek class a data ana
         //Extract the data…
         String intentName = bundle.getString("name_PreIntent");
         String intentPhn = bundle.getString("phn_PreIntent");
@@ -114,8 +117,6 @@ String downloadUrl;
         Email.setText(intentEmail);
         phnNum.setText(intentPhn);
         Dob.setText(intentDob);
-
-
 
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -166,8 +167,6 @@ String downloadUrl;
                                                                             Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
                                                                         }
                                                                     });
-
-
                                                                 }
                                                             });
                                                         }

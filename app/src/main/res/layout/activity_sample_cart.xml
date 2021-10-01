@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/postImage"
+                android:id="@+id/cart_imageFromDatabase"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
@@ -38,7 +38,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/postTitle"
+            android:id="@+id/cart_postTitle"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="16dp"
@@ -50,42 +50,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/postCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/post_item_btn2"
-            android:text="Category"
-            android:textColor="#A17B06"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/imageButton3"
-            app:layout_constraintTop_toBottomOf="@+id/postTitle" />
-
-        <TextView
-            android:id="@+id/postPrice"
+            android:id="@+id/cart_postPrice"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="126dp"
             android:text="BDT 1000"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/cardView5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/postCategory" />
-
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="0dp"
-
-            android:layout_height="20dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/post_item_btn2"
-            android:scaleType="centerInside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/postTitle"
-            app:srcCompat="@drawable/tag" />
+            app:layout_constraintTop_toBottomOf="@+id/cart_postTitle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,9 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".postDetails">
 
+    <ImageButton
+        android:id="@+id/cartBTN"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/post_item_btn"
+        android:padding="3dp"
+        android:src="@drawable/cart_red"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/backBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/white"
 
 
-        <androidx.cardview.widget.CardView
+        android:src="@drawable/leftarrow"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toStartOf="@+id/cartBTN"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +53,7 @@
 
             <ImageView
                 android:id="@+id/imageViewDetails"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
