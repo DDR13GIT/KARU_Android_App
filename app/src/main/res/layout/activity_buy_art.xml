@@ -10,6 +10,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/carousel"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headline1">
+
+        <com.synnapps.carouselview.CarouselView
+            android:id="@+id/carouselImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:fillColor="#FFFFFFFF"
+            app:indicatorVisibility="invisible"
+            app:pageColor="#00000000"
+            app:radius="80dp"
+            app:slideInterval="3000"
+            app:strokeColor="#FF777777"
+            app:strokeWidth="1dp" />
+    </androidx.cardview.widget.CardView>
+
     <Button
         android:id="@+id/searchBTN"
         android:layout_width="0dp"
@@ -22,7 +47,8 @@
         android:drawableTint="@color/ash"
         android:paddingLeft="10dp"
         android:drawablePadding="16dp"
-        android:hint="search"
+        android:hint="Search"
+        android:textAlignment="textStart"
         app:layout_constraintBottom_toTopOf="@+id/divider7"
         app:layout_constraintEnd_toStartOf="@+id/backBTN"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,12 +109,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="109dp"
+        android:layout_marginTop="24dp"
         android:text="Curated for you"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headline1" />
+        app:layout_constraintTop_toBottomOf="@+id/carousel" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/curatedRecycler_view"

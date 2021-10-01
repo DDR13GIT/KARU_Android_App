@@ -23,11 +23,15 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.squareup.picasso.Picasso;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 public class buyART extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference postReference = db.collection("Posts");
 
+    CarouselView carouselView;
+    int[] sampleImages = {R.drawable.demopic, R.drawable.buyart_bg, R.drawable.news_bg, R.drawable.news_bgg, R.drawable.resource_new};
 
     private Button search_button;
     FirestoreRecyclerAdapter<postDataModel, postHolder> recyclerAdapter;
@@ -45,6 +49,15 @@ public class buyART extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        /// carousel components ////////////////////////////////////////
+        carouselView = (CarouselView) findViewById(R.id.carouselImage);
+        carouselView.setPageCount(sampleImages.length);
+
+        carouselView.setImageListener(imageListener);
+
+
 
         Query query = postReference.orderBy("price", Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<postDataModel> allinfo = new FirestoreRecyclerOptions.Builder<postDataModel>().setQuery(query, postDataModel.class).build();
@@ -86,6 +99,14 @@ public class buyART extends AppCompatActivity {
         curatedPostInitiate();
 
     }
+
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(sampleImages[position]);
+        }
+    };
+
 
     private void curatedPostInitiate() {
 
