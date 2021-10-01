@@ -28,7 +28,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
-//import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -71,7 +71,7 @@ String downloadUrl;
         if (requestCode == Pick_image_request && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             imageUri = data.getData();
-           // Picasso.get().load(imageUri).into(view_uploadedImage);
+            Picasso.get().load(imageUri).into(view_uploadedImage);
         }
     }
 

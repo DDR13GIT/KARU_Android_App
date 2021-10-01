@@ -1,6 +1,7 @@
 package com.example.karu_android_app;
 
-import android.view.LayoutInflater;
+import android.content.Intent;
+import  android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.karu_android_app.Interface.SubCategoryOnClickInterface;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.squareup.picasso.Picasso;
@@ -28,6 +30,19 @@ public class PostAdapter extends FirestoreRecyclerAdapter<postDataModel, PostAda
     holder.price.setText("BDT " + String.valueOf(model.getPrice())+ " ৳");
     holder.category.setText(model.getCategory());
     Picasso.get().load(model.getImageUrl()).into(holder.image);
+
+
+    holder.SubCategoryOnClickInterface(new SubCategoryOnClickInterface() {
+        @Override
+        public void onClick(View view, boolean isLongPressed) {
+            Intent intent= new Intent(view.getContext(),postDetails.class);
+            ///////////////////////////////
+            intent.putExtra("title_pass",postDataModel.getTitle());
+            intent.putExtra("price_pass",postDataModel.getPrice());
+            intent.putExtra("image_pass",postDataModel.getImageUrl());
+            view.getContext()
+        }
+    });
     }
 
     @NonNull
@@ -37,11 +52,15 @@ public class PostAdapter extends FirestoreRecyclerAdapter<postDataModel, PostAda
         return new PostHolder(v);
     }
 
-    class PostHolder extends RecyclerView.ViewHolder{
+    class PostHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView title;
         TextView price;
         TextView category;
         ImageView image;
+
+
+
+        public SubCategoryOnClickInterface subCategoryOnClickInterface;
 
         public PostHolder(@NonNull View itemView) {
             super(itemView);
@@ -49,6 +68,19 @@ public class PostAdapter extends FirestoreRecyclerAdapter<postDataModel, PostAda
             price = itemView.findViewById(R.id.postPrice);
             category = itemView.findViewById(R.id.postCategory);
             image = itemView.findViewById(R.id.imageFromDatabase);
+
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            subCategoryOnClickInterface.onClick(view,false);
+
+        }
+        public void  SubCategoryOnClickInterface(SubCategoryOnClickInterface subCategoryOnClickInterface)
+        {
+            this.subCategoryOnClickInterface=subCategoryOnClickInterface;
         }
     }
 }

@@ -2,6 +2,8 @@ package com.example.karu_android_app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ public class postDetails extends AppCompatActivity {
 
     TextView title_view, price_view, description_view;
     ImageView image_view;
+    Button addCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +43,14 @@ public class postDetails extends AppCompatActivity {
         price_view = findViewById(R.id.details_price);
         description_view = findViewById(R.id.description_details);
         image_view = findViewById(R.id.imageViewDetails);
+        addCart=findViewById(R.id.addCartBTN);
 
         title_view.setText(title);
         price_view.setText("BDT " + price + " ৳");
         description_view.setText(description);
         Picasso.get().load(image_uri).into(image_view);
+
+
 
     }
 }

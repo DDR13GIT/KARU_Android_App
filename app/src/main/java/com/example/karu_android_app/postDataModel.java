@@ -20,11 +20,11 @@ public class postDataModel {
         this.imageUrl = imageUrl;
     }
 
-    public String getImageUrl() {
+    public static String getImageUrl() {
         return imageUrl;
     }
 
-    public String getTitle() {
+    public static String getTitle() {
         return title;
     }
 
@@ -40,7 +40,7 @@ public class postDataModel {
         return category;
     }
 
-    public double getPrice() {
+    public static double getPrice() {
         return price;
     }
 }
