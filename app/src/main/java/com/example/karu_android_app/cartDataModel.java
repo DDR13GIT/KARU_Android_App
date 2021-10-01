@@ -20,28 +20,28 @@ public class cartDataModel {
         return title;
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public void setCount(int count) {
         this.count = count;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {

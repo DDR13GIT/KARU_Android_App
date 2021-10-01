@@ -1,9 +1,7 @@
 package com.example.karu_android_app;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,11 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
-import com.travijuu.numberpicker.library.Enums.ActionEnum;
-import com.travijuu.numberpicker.library.Interface.ValueChangedListener;
 import com.travijuu.numberpicker.library.NumberPicker;
 
 import java.util.HashMap;
@@ -56,6 +50,7 @@ public class postDetails extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 finish();
             }
         });
@@ -102,7 +97,7 @@ public class postDetails extends AppCompatActivity {
 
                 Map<String, Object> userInfo = new HashMap<>();
                 userInfo.put(Key_name, title);
-                userInfo.put(Key_price, price);
+                userInfo.put(Key_price, Double.valueOf(price));
                 userInfo.put(Key_image, image_uri);
                 userInfo.put(Key_count, numberPicker.getValue());
 

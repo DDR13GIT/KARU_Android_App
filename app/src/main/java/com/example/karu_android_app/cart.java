@@ -1,10 +1,5 @@
 package com.example.karu_android_app;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +12,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -40,7 +40,7 @@ public class cart extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart);
+        setContentView(R.layout.activity_main_cart);
 
         back = findViewById(R.id.backBTN);
         back.setOnClickListener(new View.OnClickListener() {
@@ -59,10 +59,31 @@ public class cart extends AppCompatActivity {
                 startActivity(intent);
             }
         });*/
+        class WrapContentLinearLayoutManager extends LinearLayoutManager {
+            public WrapContentLinearLayoutManager(Context context) {
+                super(context);
+            }
+
+            public WrapContentLinearLayoutManager(Context context, int orientation, boolean reverseLayout) {
+                super(context, orientation, reverseLayout);
+            }
+
+            public WrapContentLinearLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+                super(context, attrs, defStyleAttr, defStyleRes);
+            }
+
+            @Override
+            public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+                try {
+                    super.onLayoutChildren(recycler, state);
+                } catch (IndexOutOfBoundsException e) {
+                    Log.e("TAG", "meet a IOOBE in RecyclerView");
+                }
+            }
+        }
 
 
-
-        Query query = cartReference.orderBy("price", Query.Direction.ASCENDING);
+        Query query = cartReference.orderBy("title", Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<cartDataModel> allinfo = new FirestoreRecyclerOptions.Builder<cartDataModel>().setQuery(query, cartDataModel.class).build();
         recyclerAdapter = new FirestoreRecyclerAdapter<cartDataModel, cartHolder>(allinfo) {
             @Override
@@ -70,7 +91,7 @@ public class cart extends AppCompatActivity {
 
                 String docId = recyclerAdapter.getSnapshots().getSnapshot(position).getId();
                 holder.title.setText(model.getTitle());
-                holder.price.setText("BDT " + String.valueOf(model.getPrice()) + " ৳");
+                holder.price.setText("BDT " + model.getPrice() + " ৳");
                 Picasso.get().load(model.getImageUrl()).into(holder.image);
                /* holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -95,8 +116,8 @@ public class cart extends AppCompatActivity {
         };
         RecyclerView recyclerView = findViewById(R.id.Cart_recycler_view);
         recyclerView.setHasFixedSize(true);
-       // recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(recyclerAdapter);
     }
 

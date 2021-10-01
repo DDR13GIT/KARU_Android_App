@@ -33,6 +33,28 @@ public class buyART extends AppCompatActivity {
     FirestoreRecyclerAdapter<postDataModel, postHolder> recyclerAdapter;
     FirestoreRecyclerAdapter<postDataModel, curatedPostHolder> recyclerAdapter2;
 
+//    class WrapContentLinearLayoutManager extends LinearLayoutManager {
+//        public WrapContentLinearLayoutManager(Context context) {
+//            super(context);
+//        }
+//
+//        public WrapContentLinearLayoutManager(Context context, int orientation, boolean reverseLayout) {
+//            super(context, orientation, reverseLayout);
+//        }
+//
+//        public WrapContentLinearLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+//            super(context, attrs, defStyleAttr, defStyleRes);
+//        }
+//
+//        @Override
+//        public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+//            try {
+//                super.onLayoutChildren(recycler, state);
+//            } catch (IndexOutOfBoundsException e) {
+//                Log.e("TAG", "meet a IOOBE in RecyclerView");
+//            }
+//        }
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,28 +68,7 @@ public class buyART extends AppCompatActivity {
             }
         });
 
-        class WrapContentLinearLayoutManager extends LinearLayoutManager {
-            public WrapContentLinearLayoutManager(Context context) {
-                super(context);
-            }
 
-            public WrapContentLinearLayoutManager(Context context, int orientation, boolean reverseLayout) {
-                super(context, orientation, reverseLayout);
-            }
-
-            public WrapContentLinearLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-                super(context, attrs, defStyleAttr, defStyleRes);
-            }
-
-            @Override
-            public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
-                try {
-                    super.onLayoutChildren(recycler, state);
-                } catch (IndexOutOfBoundsException e) {
-                    Log.e("TAG", "meet a IOOBE in RecyclerView");
-                }
-            }
-        }
 
         Query query = postReference.orderBy("price", Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<postDataModel> allinfo = new FirestoreRecyclerOptions.Builder<postDataModel>().setQuery(query, postDataModel.class).build();
@@ -103,7 +104,7 @@ public class buyART extends AppCompatActivity {
         };
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(recyclerAdapter);
 
         curatedPostInitiate();

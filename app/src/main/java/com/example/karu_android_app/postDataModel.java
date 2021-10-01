@@ -43,4 +43,28 @@ public class postDataModel {
     public double getPrice() {
         return price;
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }
