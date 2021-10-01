@@ -28,33 +28,13 @@ public class buyART extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference postReference = db.collection("Posts");
 
+    CarouselView carouselView;
+    int[] sampleImages = {R.drawable.demopic, R.drawable.buyart_bg, R.drawable.news_bg, R.drawable.news_bgg, R.drawable.resource_new};
 
     private Button search_button;
     FirestoreRecyclerAdapter<postDataModel, postHolder> recyclerAdapter;
     FirestoreRecyclerAdapter<postDataModel, curatedPostHolder> recyclerAdapter2;
 
-//    class WrapContentLinearLayoutManager extends LinearLayoutManager {
-//        public WrapContentLinearLayoutManager(Context context) {
-//            super(context);
-//        }
-//
-//        public WrapContentLinearLayoutManager(Context context, int orientation, boolean reverseLayout) {
-//            super(context, orientation, reverseLayout);
-//        }
-//
-//        public WrapContentLinearLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-//            super(context, attrs, defStyleAttr, defStyleRes);
-//        }
-//
-//        @Override
-//        public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
-//            try {
-//                super.onLayoutChildren(recycler, state);
-//            } catch (IndexOutOfBoundsException e) {
-//                Log.e("TAG", "meet a IOOBE in RecyclerView");
-//            }
-//        }
-//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +47,13 @@ public class buyART extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        /// carousel components ////////////////////////////////////////
+        carouselView = (CarouselView) findViewById(R.id.carouselImage);
+        carouselView.setPageCount(sampleImages.length);
+
+        carouselView.setImageListener(imageListener);
 
 
 
@@ -110,6 +97,14 @@ public class buyART extends AppCompatActivity {
         curatedPostInitiate();
 
     }
+
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(sampleImages[position]);
+        }
+    };
+
 
     private void curatedPostInitiate() {
 
