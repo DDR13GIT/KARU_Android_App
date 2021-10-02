@@ -6,7 +6,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,7 +29,7 @@ public class search_page extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference postReference = db.collection("Posts");
     private SearchAdapter adapter;
-
+    private ImageButton back;
 
     public class WrapContentLinearLayoutManager extends LinearLayoutManager {
         public WrapContentLinearLayoutManager(Context context) {
@@ -51,13 +53,20 @@ public class search_page extends AppCompatActivity {
             }
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_page);
 
-
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.search_recyclerView);
+        back = findViewById(R.id.BackBTN);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.search_recyclerView);
         recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         Query query = postReference.orderBy("title", Query.Direction.ASCENDING);
@@ -66,7 +75,7 @@ public class search_page extends AppCompatActivity {
                 .build();
 
 
-       // recyclerView.setHasFixedSize(true);
+        // recyclerView.setHasFixedSize(true);
 
 
         adapter = new SearchAdapter(options);
@@ -106,20 +115,18 @@ public class search_page extends AppCompatActivity {
     }
 
 
-        @Override
-        protected void onStart() {
-            super.onStart();
-            adapter.startListening();
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (adapter != null) {
+            adapter.stopListening();
         }
-
-        @Override
-        protected void onStop() {
-            super.onStop();
-            if (adapter != null) {
-                adapter.stopListening();
-            }
-
-
 
 
 //        searchBox.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -151,4 +158,4 @@ public class search_page extends AppCompatActivity {
     }
 
 
-    }
+}

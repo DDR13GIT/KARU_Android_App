@@ -1,10 +1,5 @@
 package com.example.karu_android_app;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -25,14 +24,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.squareup.picasso.Picasso;
-import com.travijuu.numberpicker.library.NumberPicker;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class favourite extends AppCompatActivity {
     private ImageButton back;
@@ -87,7 +81,7 @@ public class favourite extends AppCompatActivity {
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        System.out.println("cart theke delete hobe"+ model.getTitle());
+                                        System.out.println("Deleted From Cart Successfully"+ model.getTitle());
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
@@ -151,7 +145,6 @@ public class favourite extends AppCompatActivity {
 
         public favHolder(@NonNull View itemView) {
             super(itemView);
-
             title = itemView.findViewById(R.id.postTitle);
             price = itemView.findViewById(R.id.postPrice);
             image = itemView.findViewById(R.id.imageFromDatabase);

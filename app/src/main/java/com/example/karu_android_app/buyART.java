@@ -76,6 +76,7 @@ public class buyART extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), search_page.class);
                 startActivity(intent);
+
             }
         });
 
@@ -114,7 +115,7 @@ public class buyART extends AppCompatActivity {
                         postInfo.put("title",model.getTitle());
                         postInfo.put("size",model.getSize());
                         postInfo.put("price",model.getPrice());
-                        postInfo.put("image Url",model.getImageUrl());
+                        postInfo.put("imageUrl",model.getImageUrl());
                         postInfo.put("description",model.getDescription());
                         postInfo.put("category",model.getCategory());
 
@@ -144,11 +145,12 @@ public class buyART extends AppCompatActivity {
                 return new postHolder(view);
             }
         };
+
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(recyclerAdapter);
-
+        recyclerView.setItemAnimator(null);
         curatedPostInitiate();
 
     }
@@ -220,6 +222,7 @@ public class buyART extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(recyclerAdapter2);
+        recyclerView.setItemAnimator(null);
     }
 
     public class postHolder extends RecyclerView.ViewHolder {

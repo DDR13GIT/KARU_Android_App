@@ -1,6 +1,7 @@
 package com.example.karu_android_app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -63,9 +64,6 @@ public class main_cart extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
-//                Intent intent = new Intent(getApplicationContext(), buyART.class);
-//                startActivity(intent);
-//                System.out.println(totalPrice);
             }
         });
         placeOrderButton = findViewById(R.id.placeOrderBTN);
@@ -172,7 +170,7 @@ public class main_cart extends AppCompatActivity {
                         documentReference.set(transactionInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(getApplicationContext(), "Transaction e add hoise. Sabash!!", Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(getApplicationContext(), "Transaction e add hoise. Sabash!!", Toast.LENGTH_SHORT).show();
 
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -181,10 +179,10 @@ public class main_cart extends AppCompatActivity {
                                 //Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
                             }
                         });
-
                         Toast.makeText(getApplicationContext(), "Check Transaction for more details", Toast.LENGTH_SHORT).show();
 
-
+                        Intent intent = new Intent(getApplicationContext(),cart_3.class);
+                        startActivity(intent);
                     }
                 });
             }

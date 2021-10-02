@@ -1,8 +1,5 @@
 package com.example.karu_android_app;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,17 +10,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -70,9 +65,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         signInTextView.setOnClickListener(this);
         signUpBtn.setOnClickListener(this);
 
-        fullName = (EditText) findViewById(R.id.fullNameInput);
-        phnNum = (EditText) findViewById(R.id.phoneNumberInput);
-        Dob = (EditText) findViewById(R.id.dobInput);
     }
     //public static String GlobalName = fullName.getText().toString();
 
@@ -93,9 +85,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void userRegister() {
-        String name = fullName.getText().toString();
-        String phn = phnNum.getText().toString();
-        String dob = Dob.getText().toString();
         String email = signUpEmail.getText().toString().trim();
         String pass = signUpPass.getText().toString().trim();
 
@@ -127,20 +116,11 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Register is successful", Toast.LENGTH_SHORT).show();
 
-
                     Map<String,Object> userInfo = new HashMap<>();
-                    userInfo.put(Key_name,name);
-                    userInfo.put(Key_phn,phn);
-                    userInfo.put(Key_dob,dob);
                     userInfo.put(Key_email,email);
                     userInfo.put(Key_pass,pass);
 
-                    //DocumentReference documentReference = db.collection("users").document(user.getUid()).collection("basic_info").document();
-                    //documentReference.set(userInfo);
-
                     finish();
-
-
 
                     Intent intent = new Intent(getApplicationContext(), dashboard.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

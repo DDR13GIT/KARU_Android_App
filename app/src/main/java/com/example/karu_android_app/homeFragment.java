@@ -28,8 +28,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class homeFragment extends Fragment {
  private CardView sellArtFunction, buyArtFunction, exhibitionFunction;
  private ImageButton cart,fav;
-    private CardView sellArtFunction, buyArtFunction, exhibitionFunction;
-    private ImageButton cart;
     private TextView user_name;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private FirebaseFirestore root = FirebaseFirestore.getInstance();

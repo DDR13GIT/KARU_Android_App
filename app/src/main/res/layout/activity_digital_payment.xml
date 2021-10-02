@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/text_custom_background"
         android:drawableLeft="@drawable/transaction"
@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backBTN" />
+        app:layout_constraintTop_toBottomOf="@+id/faqTextView" />
 
     <TextView
         android:id="@+id/profileTextView"
@@ -55,7 +55,7 @@
         android:layout_marginTop="24dp"
         android:text="Digital Payment"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/dark_ash"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +63,23 @@
         app:layout_constraintStart_toEndOf="@+id/backBTN"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    <TextView
+        android:id="@+id/faqTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#fc5c65"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:text="Manage Transactions"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backBTN" />
     <ImageButton
         android:id="@+id/backBTN"
         android:layout_width="wrap_content"

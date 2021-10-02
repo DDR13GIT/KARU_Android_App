@@ -186,23 +186,14 @@
         android:id="@+id/addPhoto"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/post_item_btn"
-        app:layout_constraintEnd_toStartOf="@+id/imageDeleteBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_holder_cardView"
-        app:srcCompat="@drawable/changeimage" />
-
-    <ImageButton
-        android:id="@+id/imageDeleteBtn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="132dp"
         android:background="@drawable/post_item_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/addPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/image_holder_cardView"
-        app:srcCompat="@drawable/delete" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileTextView"
+        app:srcCompat="@drawable/changeimage" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

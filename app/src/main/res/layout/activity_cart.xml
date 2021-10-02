@@ -13,7 +13,7 @@
         android:layout_marginTop="32dp"
         android:text="Cart"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/dark_ash"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

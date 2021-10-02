@@ -10,9 +10,9 @@
         android:id="@+id/imageView"
         android:layout_width="147dp"
         android:layout_height="65dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="132dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/applogo" />
@@ -23,9 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
 
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="84dp"
         android:text="Sign Up"
-        android:textColor="@color/black"
+        android:textColor="@color/dark_ash"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,92 +34,16 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fullNameInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/showSignupText"
-        app:passwordToggleTint="@color/ash">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/fullNameInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/email"
-            android:drawablePadding="5dp"
-            android:drawableTint="@color/dark_ash"
-            android:hint="Full Name"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phoneNumberInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullNameInputLayout"
-        app:passwordToggleTint="@color/ash">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phoneNumberInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/email"
-            android:drawablePadding="5dp"
-            android:drawableTint="@color/dark_ash"
-            android:hint="Phone Number"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/dobInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumberInputLayout"
-        app:passwordToggleTint="@color/ash">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dobInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/email"
-            android:drawablePadding="5dp"
-            android:drawableTint="@color/dark_ash"
-            android:hint="Date Of Birth"
-            android:inputType="date" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailInputLayout"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dobInputLayout"
-        app:passwordToggleTint="@color/ash">
+        app:passwordToggleTint="@color/ash"
+        tools:layout_editor_absoluteY="386dp">
 
 
         <com.google.android.material.textfield.TextInputEditText

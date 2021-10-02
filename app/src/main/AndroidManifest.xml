@@ -25,6 +25,9 @@
             android:name=".favourite"
             android:exported="true" />
         <activity
+            android:name=".cart_3"
+            android:exported="true" />
+        <activity
             android:name=".search_page"
             android:exported="true" />
         <activity

@@ -1,16 +1,11 @@
 package com.example.karu_android_app;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -19,13 +14,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,10 +31,7 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,7 +43,7 @@ public class sellArt extends AppCompatActivity {
     private Button addPhoto;
     private Button cameraBtn;
     private ImageView view_uploadedImage;
-    private static final int REQUEST_IMAGE_CAPTURE=101;
+    private static final int REQUEST_IMAGE_CAPTURE = 101;
     String currentPhotoPath;
     private Uri imageUri;
     public static final String Key_title = "title";
@@ -89,7 +77,7 @@ public class sellArt extends AppCompatActivity {
         price = findViewById(R.id.post_price);
         addPhoto = findViewById(R.id.addPhotoBTN);
         view_uploadedImage = findViewById((R.id.showImage));
-        cameraBtn=findViewById(R.id.takePhotoBTN);
+        cameraBtn = findViewById(R.id.takePhotoBTN);
 
         addPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,74 +87,65 @@ public class sellArt extends AppCompatActivity {
         });
 
 
-
-
-
-        cameraBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                askCameraPermissions();
-            }
-        });
+//
+//        cameraBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                askCameraPermissions();
+//            }
+//        });
 
 
     }
 
 
-
-
-
-
-    private void askCameraPermissions() {
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.CAMERA}, REQUEST_IMAGE_CAPTURE);
-        }else {
-            dispatchTakePictureIntent();
-        }
-
-    }
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
+//
+//    private void askCameraPermissions() {
+//        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+//            ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.CAMERA}, REQUEST_IMAGE_CAPTURE);
+//        }else {
+//            dispatchTakePictureIntent();
+//        }
+//
+//    }
+//    private File createImageFile() throws IOException {
+//        // Create an image file name
+//        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+//        String imageFileName = "JPEG_" + timeStamp + "_";
 //        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
+//        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+//        File image = File.createTempFile(
+//                imageFileName,  /* prefix */
+//                ".jpg",         /* suffix */
+//                storageDir      /* directory */
+//        );
+//
+//        // Save a file: path for use with ACTION_VIEW intents
+//        currentPhotoPath = image.getAbsolutePath();
+//        return image;
+//    }
 
-        // Save a file: path for use with ACTION_VIEW intents
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
-
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "net.smallacademy.android.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            }
-        }
-    }
-
-
-
-
+//    private void dispatchTakePictureIntent() {
+//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        // Ensure that there's a camera activity to handle the intent
+//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//            // Create the File where the photo should go
+//            File photoFile = null;
+//            try {
+//                photoFile = createImageFile();
+//            } catch (IOException ex) {
+//
+//            }
+//            // Continue only if the File was successfully created
+//            if (photoFile != null) {
+//                Uri photoURI = FileProvider.getUriForFile(this,
+//                        "net.smallacademy.android.fileprovider",
+//                        photoFile);
+//                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+//                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//            }
+//        }
+//    }
 
 
     private void openFileChooser() {
@@ -176,13 +155,12 @@ public class sellArt extends AppCompatActivity {
         startActivityForResult(intent, Pick_image_request);
     }
 
-  /*  public void takePicture(View view) {
+    public void takePicture(View view) {
         Intent imageTakeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (imageTakeIntent.resolveActivity(getPackageManager())!=null)
-        {
-            startActivityForResult(imageTakeIntent,REQUEST_IMAGE_CAPTURE);
+        if (imageTakeIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(imageTakeIntent, REQUEST_IMAGE_CAPTURE);
         }
-    }*/
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -193,25 +171,29 @@ public class sellArt extends AppCompatActivity {
             Picasso.get().load(imageUri).into(view_uploadedImage);
 
         }
-      /*  if(requestCode==REQUEST_IMAGE_CAPTURE && resultCode==RESULT_OK){
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
 
             Bundle extras = data.getExtras();
-            Bitmap imageBitmap =(Bitmap) extras.get("data");
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
             view_uploadedImage.setImageBitmap(imageBitmap);
-        }*/
-
-        if (requestCode == REQUEST_IMAGE_CAPTURE){
-            if(resultCode == Activity.RESULT_OK){
-                File f = new File(currentPhotoPath);
-                view_uploadedImage.setImageURI(Uri.fromFile(f));
-                Log.d("tag","Absolute Uri of Image is"+ Uri.fromFile(f));
-
-                Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-               imageUri = Uri.fromFile(f);
-                mediaScanIntent.setData(imageUri);
-                this.sendBroadcast(mediaScanIntent);
-            }
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), imageBitmap, "Title", null);
+            imageUri = Uri.parse(path);
         }
+
+//        if (requestCode == REQUEST_IMAGE_CAPTURE){
+//            if(resultCode == Activity.RESULT_OK){
+//                File f = new File(currentPhotoPath);
+//                view_uploadedImage.setImageURI(Uri.fromFile(f));
+//                Log.d("tag","Absolute Uri of Image is"+ Uri.fromFile(f));
+//
+//                Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+//               imageUri = Uri.fromFile(f);
+//                mediaScanIntent.setData(imageUri);
+//                this.sendBroadcast(mediaScanIntent);
+//            }
+//        }
     }
 
     private String getFileExtension(Uri uri) {
@@ -236,60 +218,58 @@ public class sellArt extends AppCompatActivity {
                     + "." + getFileExtension(imageUri));
             mUploadTask = fileReference.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                    Task<Uri> result = taskSnapshot.getMetadata().getReference().getDownloadUrl();
-                    result.addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
-                        public void onSuccess(Uri uri) {
-                            downloadUrl = uri.toString();
-                            Toast.makeText(getApplicationContext(), "Upload successful", Toast.LENGTH_LONG).show();
-                            System.out.println(downloadUrl);
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                            Map<String, Object> postInfo = new HashMap<>();
-                            postInfo.put(Key_title, post_title);
-                            postInfo.put("search", post_title.toLowerCase());
-                            postInfo.put(Key_size, post_size);
-                            postInfo.put(Key_category, post_category);
-                            postInfo.put(Key_description, post_description);
-                            postInfo.put(Key_price, post_price);
-                            postInfo.put("postAuthor", user.getUid());
-                            postInfo.put("imageUrl", downloadUrl);
-
-                            DocumentReference documentReference = root.collection("Posts").document();
-                            documentReference.set(postInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            Task<Uri> result = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+                            result.addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
-                                public void onSuccess(Void aVoid) {
-                                    Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_SHORT).show();
+                                public void onSuccess(Uri uri) {
+                                    downloadUrl = uri.toString();
+                                    Toast.makeText(getApplicationContext(), "Upload successful", Toast.LENGTH_LONG).show();
+                                    System.out.println(downloadUrl);
 
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                                    Map<String, Object> postInfo = new HashMap<>();
+                                    postInfo.put(Key_title, post_title);
+                                    postInfo.put("search", post_title.toLowerCase());
+                                    postInfo.put(Key_size, post_size);
+                                    postInfo.put(Key_category, post_category);
+                                    postInfo.put(Key_description, post_description);
+                                    postInfo.put(Key_price, post_price);
+                                    postInfo.put("postAuthor", user.getUid());
+                                    postInfo.put("imageUrl", downloadUrl);
+
+                                    DocumentReference documentReference = root.collection("Posts").document();
+                                    documentReference.set(postInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    root.collection("Users").document(user.getUid()).collection("posts").document(post_title).set(postInfo);
                                 }
                             });
-                            root.collection("Users").document(user.getUid()).collection("posts").document(post_title).set(postInfo);
                         }
-                    });
-                }
-            })
+                    })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
-        }
-        else{
+        } else {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
 
         }
 
 
     }
-
 
 
 }
