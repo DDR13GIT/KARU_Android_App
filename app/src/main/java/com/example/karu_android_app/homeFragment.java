@@ -26,7 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class homeFragment extends Fragment {
- private CardView sellArtFunction, buyArtFunction, exhibitionFunction;
+ private CardView sellArtFunction, buyArtFunction, exhibitionFunction, newsFunction;
  private ImageButton cart,fav;
     private TextView user_name;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -44,7 +44,14 @@ public class homeFragment extends Fragment {
         fav = v.findViewById(R.id.favBtn);
         cart = v.findViewById(R.id.cartBTN);
         user_name = v.findViewById(R.id.user_name_display);
-
+newsFunction = v.findViewById(R.id.cardView4);
+newsFunction.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(getContext(), news_webview.class);
+        startActivity(intent);
+    }
+});
         DocumentReference docRef = root.collection("Users").document(user.getUid()).collection("basic_info").document("name");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override

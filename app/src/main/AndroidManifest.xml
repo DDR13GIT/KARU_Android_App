@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Karu_Android_app">
         <activity
+            android:name=".news_webview"
+            android:exported="true" />
+        <activity
             android:name=".searchPage_exhibition"
             android:exported="true" />
         <activity
