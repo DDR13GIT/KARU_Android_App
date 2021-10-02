@@ -32,7 +32,10 @@ import com.google.firebase.firestore.Query;
 import com.squareup.picasso.Picasso;
 import com.travijuu.numberpicker.library.NumberPicker;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class main_cart extends AppCompatActivity {
@@ -151,15 +154,18 @@ public class main_cart extends AppCompatActivity {
 
 
                 placeOrderButton.setOnClickListener(new View.OnClickListener() {
+
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(getApplicationContext(), "Order Placed Successfully", Toast.LENGTH_SHORT).show();
 
 
+                        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                         Map<String, Object> transactionInfo = new HashMap<>();
                         transactionInfo.put("order_list", orders);
                         transactionInfo.put("total_price", finalPrice);
                         transactionInfo.put("delivery_address", deliveryAddress.getText().toString());
+                        //transactionInfo.put("time_date", date);
 
 
                         DocumentReference documentReference = db.collection("Users").document(user.getUid()).collection("Transactions").document();
