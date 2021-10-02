@@ -4,13 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -30,6 +34,7 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,6 +55,7 @@ public class editProfile extends AppCompatActivity {
     private FirebaseFirestore root = FirebaseFirestore.getInstance();
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference("User_Images");
 
+    DatePickerDialog.OnDateSetListener setListener;
 Uri imageUri;
 //dtabase a save hobe ai nam a
     public static final String Key_name = "name";
@@ -98,6 +104,32 @@ String downloadUrl;
         view_uploadedImage= findViewById(R.id.image_holder_cardView);
         addProfilePic= findViewById(R.id.addPhoto);
         Bundle bundle = getIntent().getExtras();
+
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        Dob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        editProfile.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth
+                        ,setListener,year,month,day);
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+            }
+        });
+        setListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                month = month+1;
+                String date = day+"/"+month+"/"+year;
+                Dob.setText(date);
+            }
+        };
+
 
 
         addProfilePic.setOnClickListener(new View.OnClickListener() {

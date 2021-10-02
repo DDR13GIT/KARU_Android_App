@@ -1,9 +1,16 @@
 package com.example.karu_android_app;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -12,9 +19,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,6 +40,10 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,8 +53,10 @@ public class sellArt extends AppCompatActivity {
     private ImageButton back;
     private EditText title, size, category, description, price;
     private Button addPhoto;
-    private Button takePhoto;
+    private Button cameraBtn;
     private ImageView view_uploadedImage;
+    private static final int REQUEST_IMAGE_CAPTURE=101;
+    String currentPhotoPath;
     private Uri imageUri;
     public static final String Key_title = "title";
     public static final String Key_size = "size";
@@ -72,6 +89,7 @@ public class sellArt extends AppCompatActivity {
         price = findViewById(R.id.post_price);
         addPhoto = findViewById(R.id.addPhotoBTN);
         view_uploadedImage = findViewById((R.id.showImage));
+        cameraBtn=findViewById(R.id.takePhotoBTN);
 
         addPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +97,77 @@ public class sellArt extends AppCompatActivity {
                 openFileChooser();
             }
         });
+
+
+
+
+
+        cameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                askCameraPermissions();
+            }
+        });
+
+
     }
+
+
+
+
+
+
+    private void askCameraPermissions() {
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.CAMERA}, REQUEST_IMAGE_CAPTURE);
+        }else {
+            dispatchTakePictureIntent();
+        }
+
+    }
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+//        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this,
+                        "net.smallacademy.android.fileprovider",
+                        photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            }
+        }
+    }
+
+
+
+
+
 
     private void openFileChooser() {
         Intent intent = new Intent();
@@ -88,6 +176,14 @@ public class sellArt extends AppCompatActivity {
         startActivityForResult(intent, Pick_image_request);
     }
 
+  /*  public void takePicture(View view) {
+        Intent imageTakeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (imageTakeIntent.resolveActivity(getPackageManager())!=null)
+        {
+            startActivityForResult(imageTakeIntent,REQUEST_IMAGE_CAPTURE);
+        }
+    }*/
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -95,9 +191,28 @@ public class sellArt extends AppCompatActivity {
                 && data != null && data.getData() != null) {
             imageUri = data.getData();
             Picasso.get().load(imageUri).into(view_uploadedImage);
+
+        }
+      /*  if(requestCode==REQUEST_IMAGE_CAPTURE && resultCode==RESULT_OK){
+
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap =(Bitmap) extras.get("data");
+            view_uploadedImage.setImageBitmap(imageBitmap);
+        }*/
+
+        if (requestCode == REQUEST_IMAGE_CAPTURE){
+            if(resultCode == Activity.RESULT_OK){
+                File f = new File(currentPhotoPath);
+                view_uploadedImage.setImageURI(Uri.fromFile(f));
+                Log.d("tag","Absolute Uri of Image is"+ Uri.fromFile(f));
+
+                Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+               imageUri = Uri.fromFile(f);
+                mediaScanIntent.setData(imageUri);
+                this.sendBroadcast(mediaScanIntent);
+            }
         }
     }
-
 
     private String getFileExtension(Uri uri) {
         ContentResolver contentResolver = getContentResolver();
@@ -106,7 +221,6 @@ public class sellArt extends AppCompatActivity {
     }
 
     String downloadUrl;
-
 
     public void publish(View view) {
         String post_title = title.getText().toString();
@@ -175,5 +289,7 @@ public class sellArt extends AppCompatActivity {
 
 
     }
+
+
 
 }
