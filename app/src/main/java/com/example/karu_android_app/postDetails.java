@@ -100,7 +100,7 @@ public class postDetails extends AppCompatActivity {
                 userInfo.put(Key_count, numberPicker.getValue());
 
 
-                DocumentReference documentReference = root.collection("Users").document(user.getUid()).collection("cart").document("title");
+                DocumentReference documentReference = root.collection("Users").document(user.getUid()).collection("cart").document(title);
                 documentReference.set(userInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
