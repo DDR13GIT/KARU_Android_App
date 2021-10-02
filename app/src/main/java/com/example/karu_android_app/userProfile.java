@@ -2,9 +2,6 @@ package com.example.karu_android_app;
 
 import static android.service.controls.ControlsProviderService.TAG;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +10,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -34,7 +34,7 @@ public class userProfile extends AppCompatActivity {
     public static final String Key_dob = "dob";
     public static final String Key_phn = "phone";
     public static final String Key_email = "email";
-
+    String imageUrl_intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +67,7 @@ public class userProfile extends AppCompatActivity {
                 bundle.putString("phn_PreIntent", phn);
                 bundle.putString("email_PreIntent", email);
                 bundle.putString("dob_PreIntent", dob);
-//                bundle.putString("propic_PreIntert", profilepic);
+                bundle.putString("propic_PreIntert", imageUrl_intent);
 
                 intent.putExtras(bundle);
 
@@ -99,7 +99,7 @@ public class userProfile extends AppCompatActivity {
                         udob.setText(dob);
                         uphn.setText(phn);
                         Picasso.get().load(imageUrl).into(profilepic);
-
+                        imageUrl_intent = imageUrl;
 
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                     } else {

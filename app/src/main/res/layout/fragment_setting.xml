@@ -7,7 +7,7 @@
     tools:context=".settingFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/image_holder_cardView"
+        android:id="@+id/user_imageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="24dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/user_name_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -29,11 +29,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/image_holder_cardView"
+        app:layout_constraintStart_toEndOf="@+id/user_imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/user_email_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,8 +41,8 @@
         android:text="Email Address"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/image_holder_cardView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintStart_toEndOf="@+id/user_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/user_name_view" />
 
     <View
         android:id="@+id/divider"
@@ -54,7 +54,7 @@
         app:layout_constraintBottom_toTopOf="@+id/acc_textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/user_email_view" />
 
     <Button
         android:id="@+id/profileBtn"

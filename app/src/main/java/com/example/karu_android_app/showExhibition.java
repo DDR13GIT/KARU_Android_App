@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -92,8 +91,8 @@ public class showExhibition extends AppCompatActivity {
                         bottomSheetView.findViewById(R.id.confirmPurchase).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                /////////////////////////////////////////////////////////////////
-                                Toast.makeText(getApplicationContext(), "Purchased ticket", Toast.LENGTH_SHORT);
+
+                                System.out.println("purchased TIcket");
                                 bottomSheetDialog.dismiss();
                             }
                         });
