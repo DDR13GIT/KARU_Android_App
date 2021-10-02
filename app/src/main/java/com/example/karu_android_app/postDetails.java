@@ -59,7 +59,7 @@ public class postDetails extends AppCompatActivity {
         numberPicker.setMin(0);
         numberPicker.setUnit(1);
         numberPicker.setValue(1);
-     //   double count = Double.parseDouble(String.valueOf(numberPicker.getValue()));
+        //   double count = Double.parseDouble(String.valueOf(numberPicker.getValue()));
         //??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
         Intent data = getIntent();
         String title = data.getStringExtra("title");
@@ -71,7 +71,7 @@ public class postDetails extends AppCompatActivity {
         price_view = findViewById(R.id.details_price);
         description_view = findViewById(R.id.description_details);
         image_view = findViewById(R.id.imageViewDetails);
-        addCart=findViewById(R.id.addCartBTN);
+        addCart = findViewById(R.id.addCartBTN);
 
 
         title_view.setText(title);
@@ -83,12 +83,10 @@ public class postDetails extends AppCompatActivity {
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),main_cart.class);
+                Intent intent = new Intent(getApplicationContext(), main_cart.class);
                 startActivity(intent);
             }
         });
-
-
 
         addCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +100,7 @@ public class postDetails extends AppCompatActivity {
                 userInfo.put(Key_count, numberPicker.getValue());
 
 
-                DocumentReference documentReference = root.collection("Users").document(user.getUid()).collection("cart").document();
+                DocumentReference documentReference = root.collection("Users").document(user.getUid()).collection("cart").document("title");
                 documentReference.set(userInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -115,20 +113,10 @@ public class postDetails extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
                     }
                 });
-//        class DefaultValueChangedListener implements ValueChangedListener {
-//
-//            public void valueChanged(int value, ActionEnum action) {
-//
-//                String actionText = action == ActionEnum.MANUAL ? "manually set" : (action == ActionEnum.INCREMENT ? "incremented" : "decremented");
-//                String message = String.format("NumberPicker is %s to %d", actionText, value);
-//                Log.v(this.getClass().getSimpleName(), message);
-//                price_view.setText("BDT " + ((double)value) + " ৳");
-//            }
-//        }
 
-                // Double price_double = Double.parseDouble(price);
 
             }
         });
     }
 }
+

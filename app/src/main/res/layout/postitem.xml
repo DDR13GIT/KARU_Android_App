@@ -75,28 +75,18 @@
             app:layout_constraintTop_toBottomOf="@+id/postCategory" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/favBTN"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginStart="101dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="27dp"
             android:background="@drawable/post_item_btn"
             android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/cardView5"
-            app:layout_constraintTop_toTopOf="@+id/imageButton2"
+            app:layout_constraintStart_toEndOf="@+id/postPrice"
             app:srcCompat="@drawable/favourite" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/post_item_btn1"
-            android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="@+id/postPrice"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton"
-            app:layout_constraintTop_toTopOf="@+id/postPrice"
-            app:srcCompat="@drawable/buy" />
 
         <ImageButton
             android:id="@+id/imageButton3"

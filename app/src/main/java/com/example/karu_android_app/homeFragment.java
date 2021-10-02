@@ -4,12 +4,13 @@ package com.example.karu_android_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 
 public class homeFragment extends Fragment {
@@ -54,7 +55,7 @@ public class homeFragment extends Fragment {
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), cart.class);
+                Intent intent = new Intent(getContext(), main_cart.class);
                 startActivity(intent);
 
             }
