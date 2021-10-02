@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ public class buyART extends AppCompatActivity {
     int[] sampleImages = {R.drawable.demopic, R.drawable.buyart_bg, R.drawable.news_bg, R.drawable.news_bgg, R.drawable.resource_new};
 
     private Button search_button;
+    private ImageButton back,cart;
     FirestoreRecyclerAdapter<postDataModel, postHolder> recyclerAdapter;
     FirestoreRecyclerAdapter<postDataModel, curatedPostHolder> recyclerAdapter2;
 
@@ -41,6 +43,24 @@ public class buyART extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_art);
+
+        back = findViewById(R.id.BackBTN);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
+
+    /*    cart = findViewById(R.id.cartBTN);
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),main_cart.class);
+                startActivity(intent);
+            }
+        });*/
         search_button = findViewById(R.id.searchBTN);
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override

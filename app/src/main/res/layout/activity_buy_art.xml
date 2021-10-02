@@ -6,9 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".buyART">
 
+
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/BackBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/leftarrow"
+        app:layout_constraintBottom_toTopOf="@+id/searchBTN"
+        app:layout_constraintEnd_toStartOf="@+id/searchBTN"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/cartBTN"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="302dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/post_item_btn"
+        android:padding="3dp"
+        android:src="@drawable/cart_red"
+        app:layout_constraintBottom_toTopOf="@+id/backBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BackBTN"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/carousel"
@@ -40,25 +75,28 @@
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="22dp"
         android:background="@drawable/ash_background"
         android:drawableLeft="@drawable/search"
-        android:drawableTint="@color/ash"
-        android:paddingLeft="10dp"
         android:drawablePadding="16dp"
+        android:drawableTint="@color/ash"
         android:hint="Search"
+        android:paddingLeft="10dp"
         android:textAlignment="textStart"
-        app:layout_constraintBottom_toTopOf="@+id/divider7"
+        app:layout_constraintBottom_toTopOf="@+id/headline1"
         app:layout_constraintEnd_toStartOf="@+id/backBTN"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageButton
         android:id="@+id/backBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/ash_background"
         android:src="@drawable/filter"
@@ -66,18 +104,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/searchBTN"
         app:layout_constraintVertical_bias="0.0" />
-
-    <View
-        android:id="@+id/divider7"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#fafafa"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backBTN" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -102,7 +128,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider7" />
+        app:layout_constraintTop_toBottomOf="@+id/searchBTN" />
 
     <TextView
         android:id="@+id/curatedPost_title"

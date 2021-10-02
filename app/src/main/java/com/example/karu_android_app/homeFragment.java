@@ -52,6 +52,8 @@ public class homeFragment extends Fragment {
 
             }
         });
+
+        ////////////////////////////        cart if else            //////////////////////////////
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
