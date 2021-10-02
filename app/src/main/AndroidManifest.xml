@@ -9,7 +9,8 @@
 
     <uses-feature
         android:name="android.hardware.camera2"
-        android:required="true"/>
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +20,9 @@
         android:theme="@style/Theme.Karu_Android_app">
         <activity
             android:name=".searchPage_exhibition"
+            android:exported="true" />
+        <activity
+            android:name=".favourite"
             android:exported="true" />
         <activity
             android:name=".search_page"

@@ -26,6 +26,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class homeFragment extends Fragment {
+ private CardView sellArtFunction, buyArtFunction, exhibitionFunction;
+ private ImageButton cart,fav;
     private CardView sellArtFunction, buyArtFunction, exhibitionFunction;
     private ImageButton cart;
     private TextView user_name;
@@ -40,6 +42,8 @@ public class homeFragment extends Fragment {
         sellArtFunction = v.findViewById(R.id.cardView2);
         buyArtFunction = v.findViewById(R.id.cardView1);
         exhibitionFunction = v.findViewById(R.id.cardView3);
+        cart=v.findViewById(R.id.cartBTN);
+        fav = v.findViewById(R.id.favBtn);
         cart = v.findViewById(R.id.cartBTN);
         user_name = v.findViewById(R.id.user_name_display);
 
@@ -97,6 +101,13 @@ public class homeFragment extends Fragment {
                 Intent intent = new Intent(getContext(), main_cart.class);
                 startActivity(intent);
 
+            }
+        });
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), favourite.class);
+                startActivity(intent);
             }
         });
 
