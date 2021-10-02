@@ -45,7 +45,6 @@ public class showExhibition extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 finish();
             }
         });

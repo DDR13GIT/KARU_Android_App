@@ -1,37 +1,30 @@
 package com.example.karu_android_app;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ImageButton;
-import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -148,9 +141,6 @@ public class post_exhibition extends AppCompatActivity {
 
 
 
-
-
-
     String downloadUrl;
     public void publishExhibition(View view) {
         String eventName = Event_name.getText().toString();
@@ -190,7 +180,7 @@ public class post_exhibition extends AppCompatActivity {
                                     postInfo.put(Key_payment_num, payment);
                                     postInfo.put("userUid", user.getUid());
                                     postInfo.put("eventLogo", downloadUrl);
-
+                                    postInfo.put("search", eventName.toLowerCase());
 
                                     DocumentReference documentReference = root.collection("Exhibition").document();
 

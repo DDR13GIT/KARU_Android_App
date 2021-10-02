@@ -6,7 +6,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,7 +29,7 @@ public class searchPage_exhibition extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference postReference = db.collection("Exhibition");
     private exhibitionPostAdapter adapter;
-
+private ImageButton backBTN;
 
     public class WrapContentLinearLayoutManager extends LinearLayoutManager {
         public WrapContentLinearLayoutManager(Context context) {
@@ -72,7 +74,13 @@ public class searchPage_exhibition extends AppCompatActivity {
         adapter = new exhibitionPostAdapter(options);
         recyclerView.setAdapter(adapter);
 
-
+        backBTN = findViewById(R.id.BackBTN);
+        backBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         searchBox = findViewById(R.id.searchbox_exhibition);
         searchBox.addTextChangedListener(new TextWatcher() {
             @Override

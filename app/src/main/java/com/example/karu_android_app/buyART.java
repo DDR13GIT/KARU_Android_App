@@ -42,7 +42,7 @@ public class buyART extends AppCompatActivity {
     private CollectionReference postReference = db.collection("Posts");
 
     CarouselView carouselView;
-    int[] sampleImages = {R.drawable.demopic, R.drawable.buyart_bg, R.drawable.news_bg, R.drawable.news_bgg, R.drawable.resource_new};
+    int[] sampleImages = {R.drawable.d1, R.drawable.d2, R.drawable.d3, R.drawable.d4, R.drawable.d5};
 
     private Button search_button;
     private ImageButton back,cart;
