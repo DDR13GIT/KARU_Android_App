@@ -28,6 +28,7 @@
         android:textColor="@color/dark_ash"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/emailInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,12 +39,13 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:passwordToggleTint="@color/ash"
-        tools:layout_editor_absoluteY="386dp">
+        app:layout_constraintTop_toBottomOf="@+id/showSignupText"
+        app:passwordToggleTint="@color/ash">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -63,15 +65,15 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="127dp"
+        app:layout_constraintBottom_toTopOf="@+id/signupBTN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailInputLayout"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/ash">
-
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordInput"
@@ -90,13 +92,15 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/button_design"
         android:foregroundTint="@color/ash"
         android:text="@string/sign_up"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -147,16 +151,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="50dp"
         android:text="By continuing, you agree to Karu's Terms of Service, Privacy Policy and Cookie use."
         android:textAlignment="center"
         android:textColor="@color/dark_ash"
         android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/divider4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupBTN" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <View
         android:id="@+id/divider4"
@@ -168,5 +172,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
