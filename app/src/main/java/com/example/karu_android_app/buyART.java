@@ -48,19 +48,18 @@ public class buyART extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 finish();
             }
         });
 
-    /*    cart = findViewById(R.id.cartBTN);
+       cart = findViewById(R.id.cartBTN);
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),main_cart.class);
                 startActivity(intent);
             }
-        });*/
+        });
         search_button = findViewById(R.id.searchBTN);
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override

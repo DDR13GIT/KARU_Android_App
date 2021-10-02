@@ -1,7 +1,6 @@
 package com.example.karu_android_app;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -60,9 +59,9 @@ public class main_cart extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(getApplicationContext(), buyART.class);
-                startActivity(intent);
+                finish();
+//                Intent intent = new Intent(getApplicationContext(), buyART.class);
+//                startActivity(intent);
 //                System.out.println(totalPrice);
             }
         });
