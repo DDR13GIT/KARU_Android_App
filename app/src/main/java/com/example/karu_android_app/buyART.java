@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,15 +21,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class buyART extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private CollectionReference postReference = db.collection("Posts");
 
     CarouselView carouselView;
@@ -69,14 +79,10 @@ public class buyART extends AppCompatActivity {
             }
         });
 
-
         /// carousel components ////////////////////////////////////////
         carouselView = (CarouselView) findViewById(R.id.carouselImage);
         carouselView.setPageCount(sampleImages.length);
-
         carouselView.setImageListener(imageListener);
-
-
 
         Query query = postReference.orderBy("price", Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<postDataModel> allinfo = new FirestoreRecyclerOptions.Builder<postDataModel>().setQuery(query, postDataModel.class).build();
@@ -98,6 +104,34 @@ public class buyART extends AppCompatActivity {
                         intent.putExtra("image_uri", model.getImageUrl());
                         intent.putExtra("description", model.getDescription());
                         startActivity(intent);
+                    }
+                });
+
+                holder.fav.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Map<String, Object> postInfo = new HashMap<>();
+                        postInfo.put("title",model.getTitle());
+                        postInfo.put("size",model.getSize());
+                        postInfo.put("price",model.getPrice());
+                        postInfo.put("image Url",model.getImageUrl());
+                        postInfo.put("description",model.getDescription());
+                        postInfo.put("category",model.getCategory());
+
+
+                        DocumentReference documentReference = db.collection("Users").document(user.getUid()).collection("Favourite").document(model.getTitle());
+                        documentReference.set(postInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
                 });
             }
@@ -151,6 +185,8 @@ public class buyART extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+
+
             }
 
             @NonNull
@@ -194,6 +230,7 @@ public class buyART extends AppCompatActivity {
         TextView price;
         TextView category;
         ImageView image;
+        ImageButton fav;
 
         public postHolder(@NonNull View itemView) {
             super(itemView);
@@ -201,6 +238,7 @@ public class buyART extends AppCompatActivity {
             price = itemView.findViewById(R.id.postPrice);
             category = itemView.findViewById(R.id.postCategory);
             image = itemView.findViewById(R.id.imageFromDatabase);
+            fav = itemView.findViewById(R.id.favBTN);
 
         }
     }

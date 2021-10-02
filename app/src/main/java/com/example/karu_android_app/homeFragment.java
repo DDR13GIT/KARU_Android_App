@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 public class homeFragment extends Fragment {
  private CardView sellArtFunction, buyArtFunction, exhibitionFunction;
- private ImageButton cart;
+ private ImageButton cart,fav;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,6 +26,7 @@ public class homeFragment extends Fragment {
         buyArtFunction = v.findViewById(R.id.cardView1);
         exhibitionFunction = v.findViewById(R.id.cardView3);
         cart=v.findViewById(R.id.cartBTN);
+        fav = v.findViewById(R.id.favBtn);
 
         sellArtFunction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +63,13 @@ public class homeFragment extends Fragment {
 
             }
         });
-
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), favourite.class);
+                startActivity(intent);
+            }
+        });
         return v;
     }
 }
