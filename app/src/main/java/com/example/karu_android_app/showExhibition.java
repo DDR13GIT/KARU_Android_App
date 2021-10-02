@@ -31,6 +31,7 @@ public class showExhibition extends AppCompatActivity {
 
     private exhibitionPostAdapter adapter;
     private FloatingActionButton floatingBTN;
+    private ImageButton back;
 
     FirestoreRecyclerAdapter<exhibitionPostInfo, postHolder> recyclerAdapter;
 
@@ -38,6 +39,15 @@ public class showExhibition extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_exhibition);
+
+        back = findViewById(R.id.BackBTN);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
 
         floatingBTN = findViewById(R.id.plusBTN);
         floatingBTN.setOnClickListener(new View.OnClickListener() {
