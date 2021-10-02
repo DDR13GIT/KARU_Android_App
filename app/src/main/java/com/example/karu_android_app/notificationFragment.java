@@ -1,5 +1,6 @@
 package com.example.karu_android_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,7 +24,8 @@ public class notificationFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // finish();
+                Intent intent = new Intent(getContext(),dashboard.class);
+                startActivity(intent);
             }
         });
         return v;
