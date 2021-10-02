@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".search_page">
-
+    tools:context=".searchPage_exhibition">
     <ImageButton
         android:id="@+id/BackBTN"
         android:layout_width="wrap_content"
@@ -18,17 +17,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/search_recyclerView"
+        android:id="@+id/search_recyclerView_exhibition"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="800dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchbox" />
+        app:layout_constraintTop_toBottomOf="@+id/searchbox_exhibition" />
 
     <EditText
-        android:id="@+id/searchbox"
+        android:id="@+id/searchbox_exhibition"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -38,7 +37,7 @@
         android:drawableLeft="@drawable/search"
         android:drawablePadding="10dp"
         android:drawableTint="@color/ash"
-        android:hint="Search posts by title..."
+        android:hint="Search exhibitions by title..."
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

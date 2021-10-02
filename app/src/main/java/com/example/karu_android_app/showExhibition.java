@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,6 +33,7 @@ public class showExhibition extends AppCompatActivity {
     private exhibitionPostAdapter adapter;
     private FloatingActionButton floatingBTN;
     private ImageButton back;
+    private Button search_button;
 
     FirestoreRecyclerAdapter<exhibitionPostInfo, postHolder> recyclerAdapter;
 
@@ -48,7 +50,14 @@ public class showExhibition extends AppCompatActivity {
                 finish();
             }
         });
-
+        search_button = findViewById(R.id.searchBTN);
+        search_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), searchPage_exhibition.class);
+                startActivity(intent);
+            }
+        });
         floatingBTN = findViewById(R.id.plusBTN);
         floatingBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,15 +69,15 @@ public class showExhibition extends AppCompatActivity {
 
         Query query = postReference.orderBy("eventDate", Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<exhibitionPostInfo> allInfo = new FirestoreRecyclerOptions.Builder<exhibitionPostInfo>().setQuery(query, exhibitionPostInfo.class).build();
-        recyclerAdapter = new FirestoreRecyclerAdapter<exhibitionPostInfo,postHolder>(allInfo) {
+        recyclerAdapter = new FirestoreRecyclerAdapter<exhibitionPostInfo, postHolder>(allInfo) {
             @Override
             protected void onBindViewHolder(@NonNull postHolder holder, int position, @NonNull exhibitionPostInfo model) {
 
                 String docId = recyclerAdapter.getSnapshots().getSnapshot(position).getId();
                 holder.event_name.setText(model.getEventName());
-                holder.event_date_place.setText(model.getEventPlace()+", "+ model.getEventDate());
-                holder.event_price.setText(String.valueOf("BDT " +model.getTicketPrice()+ " ৳"));
-                holder.event_hostName.setText("Hosted by "+ model.getEventHost());
+                holder.event_date_place.setText(model.getEventPlace() + ", " + model.getEventDate());
+                holder.event_price.setText(String.valueOf("BDT " + model.getTicketPrice() + " ৳"));
+                holder.event_hostName.setText("Hosted by " + model.getEventHost());
                 Picasso.get().load(model.getEventLogo()).into(holder.event_logo);
                 holder.purchaseBTN.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -76,22 +85,22 @@ public class showExhibition extends AppCompatActivity {
                         System.out.println("exhibition clicked");
 
                         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
-                                showExhibition.this,R.style.BottomSheetDialogTheme);
+                                showExhibition.this, R.style.BottomSheetDialogTheme);
                         View bottomSheetView = LayoutInflater.from(showExhibition.this)
                                 .inflate(R.layout.bottom_sheet_exhibition_purchase,
-                                        (LinearLayout)findViewById(R.id.bottomSheetContainer));
+                                        (LinearLayout) findViewById(R.id.bottomSheetContainer));
                         bottomSheetView.findViewById(R.id.confirmPurchase).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 /////////////////////////////////////////////////////////////////
-                                Toast.makeText(getApplicationContext(),"Purchased ticket", Toast.LENGTH_SHORT);
-                                   bottomSheetDialog.dismiss();
+                                Toast.makeText(getApplicationContext(), "Purchased ticket", Toast.LENGTH_SHORT);
+                                bottomSheetDialog.dismiss();
                             }
                         });
                         TextView event_name, event_host, price;
                         event_name = bottomSheetView.findViewById(R.id.eventNameInBS);
                         event_host = bottomSheetView.findViewById(R.id.eventHostInBS);
-                        price= bottomSheetView.findViewById(R.id.eventPriceInBS);
+                        price = bottomSheetView.findViewById(R.id.eventPriceInBS);
 
                         event_name.setText(model.getEventName());
                         event_host.setText(model.getEventHost());
@@ -119,8 +128,7 @@ public class showExhibition extends AppCompatActivity {
         recyclerView.setAdapter(recyclerAdapter);
 
 
-
-      //  setUpRecyclerView();
+        //  setUpRecyclerView();
     }
 
     public class postHolder extends RecyclerView.ViewHolder {
