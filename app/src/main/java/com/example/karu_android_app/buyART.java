@@ -128,9 +128,6 @@ public class buyART extends AppCompatActivity {
 
 
     private void curatedPostInitiate() {
-
-
-
         Query query = postReference.orderBy("title", Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<postDataModel> allinfo = new FirestoreRecyclerOptions.Builder<postDataModel>().setQuery(query, postDataModel.class).build();
         recyclerAdapter2 = new FirestoreRecyclerAdapter<postDataModel, curatedPostHolder>(allinfo) {

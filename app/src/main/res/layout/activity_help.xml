@@ -59,20 +59,6 @@
         app:layout_constraintTop_toBottomOf="@+id/q2BTN" />
 
 
-    <View
-        android:id="@+id/divider4"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="720dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileTextView"
-        app:layout_constraintVertical_bias="0.0" />
-
     <Button
         android:id="@+id/q1BTN"
         android:layout_width="match_parent"
@@ -141,6 +127,7 @@
         android:id="@+id/faqTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:background="#fc5c65"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
@@ -152,5 +139,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider4" />
+        app:layout_constraintTop_toBottomOf="@+id/backBTN" />
 </androidx.constraintlayout.widget.ConstraintLayout>
