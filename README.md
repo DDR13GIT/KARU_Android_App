@@ -43,7 +43,6 @@ From Android Studio, select Import Project, then select the root folder of the c
 ## Developers
     Debopriya Deb Roy [Team Leader]
     Maisha Musarrat Nabila
-    Susmoy Ahmed
 
 License
 ----
