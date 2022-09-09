@@ -1,10 +1,8 @@
-# Karu Android App
-#### An app for selling and buying artworks
-![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
+![](https://cdn.discordapp.com/attachments/983042852315615266/1017775140882350110/karulogo_1.png)
+##### An app for selling and buying artworks
 
-![](https://img.shields.io/github/stars/pandao/editor.md.svg) ![](https://img.shields.io/github/forks/pandao/editor.md.svg) ![](https://img.shields.io/github/tag/pandao/editor.md.svg) ![](https://img.shields.io/github/release/pandao/editor.md.svg) ![](https://img.shields.io/github/issues/pandao/editor.md.svg) ![](https://img.shields.io/bower/v/editor.md.svg)
-![](https://mir-s3-cdn-cf.behance.net/project_modules/disp/0236fd133793711.61c5d1bbc7af2.jpg)
-> [Behance link for all the screenshots](https://www.behance.net/gallery/133793711/KARU-%28Android-app-to-Buy-Sell-artworks%29)
+
+ [Behance link for all the screenshots](https://www.behance.net/gallery/133793711/KARU-%28Android-app-to-Buy-Sell-artworks%29)
 
 ## Introduction
 Hi! I am Debopriya Deb Roy. Currently a CSE undergrad student studying in Ahsanullah University of Science and Technology. In our software development lab of 2nd year 2nd semester, we had to make a android application. So, I made this app with my team member Maisha Musarrat Nabila. Karu is an android app which is basically a buying-selling platform using firestore database to handle it's data.
@@ -150,17 +148,18 @@ The estimated Budget is 250000 BDT. Will try to not exceed this budget.
 |   |  Total |  138100 | 56150  | 18250  |
 |  Cash Flow| | - 138100 |- 56150  | -18250  |   
 
-Net Present Value (NPV):
-CF = Cash Flow, R = Rate of risk, t = time NPV = ∑ CF/(1+R)^t
+    Net Present Value (NPV):
+    CF = Cash Flow, R = Rate of risk, t = time NPV = ∑ CF/(1+R)^t
 
-For Year 0:
-PV = CF/(1+R)^t = - 138100 /(1+0.12)^0 = –138100
-For Year 1:
-PV = CF/(1+R)^t = - 56150 /(1+0.12)^1 = –50133.928
-For Year 2:
-PV = CF/(1+R)^t = - 18250 /(1+0.12)^2 = –14548.788
-So,
-NPV = ∑ CF/(1+R)^t = (–138100 –50133.928 –14548.788) = –248514
+    For Year 0:
+    PV = CF/(1+R)^t = - 138100 /(1+0.12)^0 = –138100
+    For Year 1:
+    PV = CF/(1+R)^t = - 56150 /(1+0.12)^1 = –50133.928
+    For Year 2:
+    PV = CF/(1+R)^t = - 18250 /(1+0.12)^2 = –14548.788
+    So,
+    NPV = ∑ CF/(1+R)^t = (–138100 –50133.928 –14548.788) = –248514
+  
 As we can see the result is negative as we have not made any revenue at the start. But as our users come and they start purchasing using the app we will start getting our revenue. We can get revenue too when others do their advertisement in our app.
 
 #### f.	Risk Analysis:
