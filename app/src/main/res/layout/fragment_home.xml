@@ -29,11 +29,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-
-            android:drawableLeft="@drawable/savedaddress"
-
-            android:drawablePadding="10dp"
-
+            android:drawableLeft="@drawable/baseline_my_location_24"
             android:text="17, Dhanmondi, Dhaka"
             android:textAlignment="viewStart"
             android:textAllCaps="false"
