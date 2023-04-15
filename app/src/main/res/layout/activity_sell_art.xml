@@ -82,12 +82,12 @@
             android:background="@drawable/button_design"
             android:drawableLeft="@drawable/edit"
             android:drawablePadding="16dp"
-            android:drawableTint="@color/white"
+
             android:onClick="publish"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             android:text="Publish"
-            android:textColor="@color/white"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -101,7 +101,7 @@
             android:layout_marginTop="24dp"
             android:text="Sell Item"
             android:textAlignment="center"
-            android:textColor="@color/dark_ash"
+
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

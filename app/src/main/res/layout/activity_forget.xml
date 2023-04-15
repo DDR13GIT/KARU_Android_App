@@ -68,7 +68,7 @@
         android:layout_marginRight="30dp"
         android:background="@drawable/button_design"
         android:text="Click Herw To recover"
-        android:textColor="@color/white">
+        >
 
     </Button>
 

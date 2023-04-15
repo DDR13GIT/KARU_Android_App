@@ -7,19 +7,18 @@
     tools:context=".digital_payment">
 
     <Button
+        style="@style/Widget.Material3.Button.TonalButton"
         android:id="@+id/managePaymentBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/text_custom_background"
         android:drawableLeft="@drawable/payment"
         android:drawablePadding="16dp"
         android:text="Manage Payment"
         android:textAlignment="textStart"
         android:textAllCaps="false"
-        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
@@ -28,20 +27,20 @@
 
 
     <Button
+        style="@style/Widget.Material3.Button.TonalButton"
         android:id="@+id/transactionBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/text_custom_background"
         android:drawableLeft="@drawable/transaction"
         android:drawablePadding="16dp"
         android:paddingLeft="16dp"
         android:text="Transaction History"
         android:textAlignment="textStart"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -55,7 +54,7 @@
         android:layout_marginTop="24dp"
         android:text="Digital Payment"
         android:textAlignment="center"
-        android:textColor="@color/dark_ash"
+
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +72,7 @@
         android:paddingBottom="20dp"
         android:text="Manage Transactions"
         android:textAlignment="center"
-        android:textColor="@color/white"
+
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="@color/white"
+
         android:src="@drawable/leftarrow"
         app:layout_constraintEnd_toStartOf="@+id/profileTextView"
         app:layout_constraintHorizontal_bias="0.0"

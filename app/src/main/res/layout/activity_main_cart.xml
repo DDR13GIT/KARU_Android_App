@@ -31,7 +31,7 @@
             android:layout_marginTop="16dp"
             android:text="Cart"
             android:textAlignment="center"
-            android:textColor="@color/dark_ash"
+
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
             android:paddingBottom="20dp"
             android:text="Process Your Order"
             android:textAlignment="center"
-            android:textColor="@color/white"
+
             android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:backgroundTint="@color/white"
+
 
             android:src="@drawable/leftarrow"
             app:layout_constraintEnd_toStartOf="@+id/faqDetails"
@@ -76,7 +76,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
-            android:outlineAmbientShadowColor="@color/black"
+
             app:cardCornerRadius="20dp"
             app:cardElevation="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +127,7 @@
                     android:background="@drawable/post_item_btn_teal"
                     android:text="Total"
 
-                    android:textColor="@color/teal_700"
+
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="97dp"
                     android:layout_marginTop="16dp"
-android:textColor="@color/scarlet_Red"
+
                     android:layout_marginEnd="16dp"
                     android:text="0.00"
                     android:textSize="20sp"
@@ -197,7 +197,7 @@ android:textColor="@color/scarlet_Red"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:outlineAmbientShadowColor="@color/black"
+
             app:cardCornerRadius="20dp"
             app:cardElevation="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -236,7 +236,7 @@ android:textColor="@color/scarlet_Red"
                     android:layout_marginBottom="8dp"
                     android:hint="Type ypur address here"
                     android:background="@drawable/ash_background"
-                    android:textColor="@color/black"
+
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -255,7 +255,7 @@ android:textColor="@color/scarlet_Red"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:outlineAmbientShadowColor="@color/black"
+
             app:cardCornerRadius="20dp"
             app:cardElevation="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -329,11 +329,11 @@ android:textColor="@color/scarlet_Red"
             android:background="@drawable/button_design"
             android:drawableLeft="@drawable/edit"
             android:drawablePadding="16dp"
-            android:drawableTint="@color/white"
+
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             android:text="Place Order"
-            android:textColor="@color/white"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

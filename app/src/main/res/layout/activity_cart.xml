@@ -13,7 +13,7 @@
         android:layout_marginTop="32dp"
         android:text="Cart"
         android:textAlignment="center"
-        android:textColor="@color/dark_ash"
+
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:backgroundTint="@color/white"
+
         android:src="@drawable/leftarrow"
         app:layout_constraintEnd_toStartOf="@+id/profileTextView"
         app:layout_constraintHorizontal_bias="0.218"
@@ -46,12 +46,10 @@
 
     <Button
         android:id="@+id/browseBTN"
-        android:layout_width="110dp"
-        android:layout_height="38dp"
-        android:background="@drawable/button_design"
-        android:drawableTint="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Browse"
-        android:textColor="@color/white"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

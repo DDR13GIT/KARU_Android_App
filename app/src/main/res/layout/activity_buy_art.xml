@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:backgroundTint="@color/white"
+
             android:src="@drawable/leftarrow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +68,7 @@
             android:layout_marginTop="24dp"
             android:text="Explore Artworks"
             android:textAlignment="center"
-            android:textColor="@color/dark_ash"
+
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,10 +82,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/ash_background"
             android:drawableLeft="@drawable/search"
             android:drawablePadding="16dp"
-            android:drawableTint="@color/ash"
             android:hint="Search"
             android:paddingLeft="10dp"
             android:textAlignment="textStart"

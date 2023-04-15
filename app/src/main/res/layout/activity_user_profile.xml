@@ -28,14 +28,14 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/button_design"
+
         android:drawableLeft="@drawable/edit"
         android:drawablePadding="16dp"
-        android:drawableTint="@color/white"
+
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
         android:text="Edit Information"
-        android:textColor="@color/white"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -50,7 +50,7 @@
         android:layout_marginTop="24dp"
         android:text="Profile"
         android:textAlignment="center"
-        android:textColor="@color/dark_ash"
+
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
